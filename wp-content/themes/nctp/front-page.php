@@ -257,7 +257,7 @@ wp_reset_query();
 												</div>
 												<div class="btn-box">
 													<div class="btn btn-readmore">
-														<a href="<?php echo esc_url( home_url( '/post-category/news/' ) ); ?>">
+														<a href="<?php echo esc_url( home_url( '/post-category/blog/' ) ); ?>">
 															記事一覧を見る →
 														</a>
 														</div>
