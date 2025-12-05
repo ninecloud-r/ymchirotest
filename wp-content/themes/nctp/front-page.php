@@ -87,7 +87,7 @@ $wp_query = new WP_Query();
 $args = array(
 'post_type' => 'post',
 'post_status' => 'publish',
-'category__in' => 2,
+'category__in' => 23,
 'posts_per_page' => 4,
 'order' => 'DESC'
 );
