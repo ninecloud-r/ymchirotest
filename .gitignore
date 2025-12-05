@@ -1,13 +1,49 @@
-# ===============================================
-# ステップ 1: すべてのファイルとディレクトリを無視
-# ===============================================
-*
+#.gitignore
+#.htaccess
+ServiceClient
+google1c5264aa71aedcef.html
+#index.php
+license.txt
+readme.html
+wp-activate.php
+wp-admin
+wp-blog-header.php
+wp-comments-post.php
+wp-config-sample.php
+#wp-config.php
+#wp-content
+wp-cron.php
+wp-includes
+wp-links-opml.php
+wp-load.php
+wp-login.php
+wp-mail.php
+wp-settings.php
+wp-signup.php
+wp-trackback.php
+wp.html
+xmlrpc.php
 
-# ===============================================
-# ステップ 2: 例外的に管理対象に戻す
-# ===============================================
+#--wp-content内--#
+wp-content/ai1wm-backups
+wp-content/autoptimize_404_handler.php
+wp-content/cache
+wp-content/ewww
+#wp-content/index.php
+wp-content/languages
+wp-content/mini.php
+wp-content/myfiles
+wp-content/plugins
+wp-content/siteguard
+#wp-content/themes
+wp-content/upgrade
+wp-content/upgrade-temp-backup
+wp-content/uploads
 
-# 1. 必要なコアファイル
-!/.gitignore   # このファイル自身を管理対象に戻す
-!/wp-config.php # 設定ファイル (環境依存部分は含めないように注意)
+#--wp-content/theme内--#
+wp-content/themes/emanon-business
+wp-content/themes/emanon-pro
+wp-content/themes/index.php
+#wp-content/themes/nctp
+wp-content/themes/twentytwentyfour
 
