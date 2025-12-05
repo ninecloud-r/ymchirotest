@@ -23,7 +23,7 @@ $wp_query = new WP_Query();
 $args = array(
 'post_type' => 'post',
 'post_status' => 'publish',
-'category__in' => 1,
+'category__in' => 226,
 'posts_per_page' => 12,
 'order' => 'DESC'
 );
