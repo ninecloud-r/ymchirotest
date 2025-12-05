@@ -10,7 +10,7 @@ Template Name: seminar
 								<div class="section-title">
 									<h2 class="en-title">News & Blog</h2>
 									<p class="jp-title">
-										お知らせとブログ
+										お知らせとブログ#
 										</p>
 									</div>
 									
