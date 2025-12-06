@@ -211,52 +211,64 @@ NUNU工房
 										<div class="contents-area">
 											<div class="contents-wrap">
 												<ul class="blog-contents-wrap">
-                                                 <?php
-$wp_query = new WP_Query();
+<?php
+// ★ 1. メインクエリの上書きを避けるため、カスタムクエリを使用 (以前の修正を踏襲)
 $args = array(
-'post_type' => 'post',
-'post_status' => 'publish',
-'category__in' => 39,
-'posts_per_page' => 6,
-'order' => 'DESC'
+    'post_type'      => 'post',
+    'post_status'    => 'publish',
+    'category__in'   => 73,
+    'posts_per_page' => 6,
+    'order'          => 'DESC',
+    'orderby'        => 'date',
+    'ignore_sticky_posts' => 1 // 念のため追加
 );
-$wp_query->query($args);
-if($wp_query->have_posts()){
+
+$custom_query = new WP_Query($args);
+
+if ($custom_query->have_posts()) {
+    while ($custom_query->have_posts()) {
+        $custom_query->the_post(); // the_post() ではなく、カスタムクエリのメソッドを使用
+        
+        // ★ 2. first_image()の結果を変数に格納し、サイズチェックを行う
+        $image_url = first_image();
+        $image_valid = false;
+        
+        // 最小幅を100pxに設定（これ以下の画像は無視）
+        $min_width = 100; 
+
+        if ($image_url) {
+            // URLから画像サイズを取得し、幅が min_width 以上か確認
+            // 注意: getimagesize() は外部URLや相対パスで失敗することがあります
+            $image_size = @getimagesize($image_url);
+            
+            if ($image_size && $image_size[0] >= $min_width) {
+                $image_valid = true;
+            }
+        }
 ?>
-                        
+    <li>
+        <a href="<?php echo get_permalink(); ?>" class="archive-column">
+            <div class="blog-icon">
+                <div class="img-box">
+                    
+                    <?php if ($image_valid): // ★ 3. 有効な画像URLがあり、かつサイズが規定以上の場合 ?>
+                        <img src="<?php echo esc_url($image_url); ?>" alt="<?php the_title_attribute(); ?>">
+                    <?php else: ?>
+                        <img src="<?php echo esc_url($url); ?>/view/images/top_img09.jpg" alt="<?php the_title_attribute(); ?>" />
+                    <?php endif; ?>
+                    
+                </div>
+                <p class="time-box"><?php the_time('Y/m/d'); ?></p>
+            </div>
+            <h4><?php the_title(); ?></h4>
+        </a>
+    </li>
 <?php
-while (have_posts()) {
-the_post();
-?>   
-                                                    
-													<li>
-														<a href="<?php echo get_permalink(); ?>" class="archive-column">
-														<div class="blog-icon">
-                                                            <div class="img-box">
-                                                            <?php if(first_image()): ?>
-  <img src="<?php echo first_image(); ?>" alt="<?php the_title(); ?>">
-                                                            <?php else: ?>
-
-															<img src="<?php echo $url?>/view/images/top_img09.jpg" />
-                                                            <?php endif; ?>
-                                                                </div>
-															<p class="time-box">
-																<?php the_time('Y/m/d'); ?>
-																</p>
-															</div>
-														<h4><?php the_title(); ?></h4>
-														</a>
-
-														</li>
-                                                    
-
-<?php
-}
-wp_reset_query();
+    }
+    wp_reset_postdata(); // ★ カスタムクエリ使用時の正しいリセット方法
 }
 ?>
-														
-													</ul>
+</ul>
 												</div>
 												</div>
 												<div class="btn-box">
