@@ -90,7 +90,8 @@ $args = array(
     'category__in' => 23,
     'posts_per_page' => 4,
     'order' => 'DESC',
-    'ignore_sticky_posts' => 1
+    'orderby' => 'date', // ★ 投稿日（post_date）でソートを強制
+    'ignore_sticky_posts' => 1 // ★ 固定投稿を無視
 );
 
 // 2. カスタムクエリオブジェクトを作成し、実行
