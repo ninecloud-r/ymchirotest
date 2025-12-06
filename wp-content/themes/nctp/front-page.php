@@ -87,7 +87,7 @@ echo $page_include; //出力
 $args = array(
     'post_type' => 'post',
     'post_status' => 'publish',
-    'category__in' => 226,
+    'category__in' => 23,
     'posts_per_page' => 4,
     'order' => 'DESC'
 );
