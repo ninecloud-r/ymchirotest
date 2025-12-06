@@ -89,7 +89,7 @@ $args = array(
     'post_status' => 'publish',
     'category__in' => 23,
     'posts_per_page' => 4,
-    'order' => 'DESC'
+    'order' => 'DESC',
     'ignore_sticky_posts' => 1
 );
 
