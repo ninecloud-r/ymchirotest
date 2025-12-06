@@ -90,6 +90,7 @@ $args = array(
     'category__in' => 23,
     'posts_per_page' => 4,
     'order' => 'DESC'
+    'ignore_sticky_posts' => 1
 );
 
 // 2. カスタムクエリオブジェクトを作成し、実行
