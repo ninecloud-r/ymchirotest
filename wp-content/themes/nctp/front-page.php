@@ -91,7 +91,12 @@ $args = array(
     'posts_per_page' => 4,
     'order' => 'DESC',
     'orderby' => 'date', // ★ 投稿日（post_date）でソートを強制
-    'ignore_sticky_posts' => 1 // ★ 固定投稿を無視
+    'ignore_sticky_posts' => 1, // ★ 固定投稿を無視
+    // ★ 追加する行：現在時刻以前に公開された投稿のみを強制
+    'date_query' => array(
+        'before' => 'today',
+        'inclusive' => true,
+    )
 );
 
 // 2. カスタムクエリオブジェクトを作成し、実行
