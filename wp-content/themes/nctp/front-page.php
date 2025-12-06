@@ -212,7 +212,7 @@ NUNU工房
 											<div class="contents-wrap">
 												<ul class="blog-contents-wrap">
 <?php
-// ★ 1. メインクエリの上書きを避けるため、カスタムクエリを使用 (以前の修正を踏襲)
+// クエリの定義 (安定したカスタムクエリ方式)
 $args = array(
     'post_type'      => 'post',
     'post_status'    => 'publish',
@@ -220,29 +220,31 @@ $args = array(
     'posts_per_page' => 6,
     'order'          => 'DESC',
     'orderby'        => 'date',
-    'ignore_sticky_posts' => 1 // 念のため追加
+    'ignore_sticky_posts' => 1
 );
 
 $custom_query = new WP_Query($args);
 
 if ($custom_query->have_posts()) {
     while ($custom_query->have_posts()) {
-        $custom_query->the_post(); // the_post() ではなく、カスタムクエリのメソッドを使用
+        $custom_query->the_post();
         
-        // ★ 2. first_image()の結果を変数に格納し、サイズチェックを行う
-        $image_url = first_image();
+        // ★ 1. first_image()の結果を変数に格納し、サイズチェックを行う準備
+        $image_url = null;
         $image_valid = false;
-        
-        // 最小幅を100pxに設定（これ以下の画像は無視）
-        $min_width = 100; 
+        $min_width = 100; // 最小幅を100pxに設定（アイコンや絵文字を無視）
 
-        if ($image_url) {
-            // URLから画像サイズを取得し、幅が min_width 以上か確認
-            // 注意: getimagesize() は外部URLや相対パスで失敗することがあります
-            $image_size = @getimagesize($image_url);
+        if (!has_post_thumbnail()) {
+            // アイキャッチがない場合のみ、first_imageを試す
+            $image_url = first_image();
             
-            if ($image_size && $image_size[0] >= $min_width) {
-                $image_valid = true;
+            if ($image_url) {
+                // 画像サイズチェックを実行
+                $image_size = @getimagesize($image_url);
+                
+                if ($image_size && $image_size[0] >= $min_width) {
+                    $image_valid = true;
+                }
             }
         }
 ?>
@@ -251,10 +253,15 @@ if ($custom_query->have_posts()) {
             <div class="blog-icon">
                 <div class="img-box">
                     
-                    <?php if ($image_valid): // ★ 3. 有効な画像URLがあり、かつサイズが規定以上の場合 ?>
+                    <?php if (has_post_thumbnail()): ?>
+                        <?php the_post_thumbnail('thumbnail'); // サムネイルサイズを指定 ?>
+                        
+                    <?php elseif ($image_valid): ?>
                         <img src="<?php echo esc_url($image_url); ?>" alt="<?php the_title_attribute(); ?>">
+                        
                     <?php else: ?>
                         <img src="<?php echo esc_url($url); ?>/view/images/top_img09.jpg" alt="<?php the_title_attribute(); ?>" />
+                        
                     <?php endif; ?>
                     
                 </div>
@@ -265,7 +272,7 @@ if ($custom_query->have_posts()) {
     </li>
 <?php
     }
-    wp_reset_postdata(); // ★ カスタムクエリ使用時の正しいリセット方法
+    wp_reset_postdata(); 
 }
 ?>
 </ul>
