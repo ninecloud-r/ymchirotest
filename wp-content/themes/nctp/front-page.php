@@ -83,22 +83,24 @@ echo $page_include; //出力
 </div>-->
 <ul>
 <?php
-$wp_query = new WP_Query();
+// 1. 新しいクエリのための引数を定義
 $args = array(
-'post_type' => 'post',
-'post_status' => 'publish',
-'category__in' => 23,
-'posts_per_page' => 4,
-'order' => 'DESC'
+    'post_type' => 'post',
+    'post_status' => 'publish',
+    'category__in' => 226,
+    'posts_per_page' => 4,
+    'order' => 'DESC'
 );
-$wp_query->query($args);
-if($wp_query->have_posts()){
+
+// 2. カスタムクエリオブジェクトを作成し、実行
+$custom_query = new WP_Query($args); // グローバル変数を汚染しない方法
+
+// 3. カスタムクエリを使ってループを開始
+if($custom_query->have_posts()){
+    while ($custom_query->have_posts()) {
+        $custom_query->the_post(); // the_post() ではなく、クエリオブジェクトのメソッドを使用
 ?>
-<?php
-while (have_posts()) {
-the_post();
-?>   
-<li class="archive-column">
+        <li class="archive-column">
 <div class="lp-icon">
 <div class="img-box">
 <a href="<?php the_permalink(); ?>">
@@ -120,11 +122,13 @@ $size = 'full'; // (thumbnail, medium, large, full or custom size)
 </div>
 <a href="<?php echo get_permalink(); ?>" >
 <h4><?php the_title(); ?></h4>
-</a>
-</li>
+</a>        	
+            </li>
 <?php
-}
-wp_reset_query();
+    }
+    
+    // 4. カスタムクエリ終了後、メインクエリの投稿データを復元
+    wp_reset_postdata(); // ★ wp_reset_query() ではなく、wp_reset_postdata() を使用
 }
 ?>
 </ul>
