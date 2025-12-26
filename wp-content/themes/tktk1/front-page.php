@@ -93,14 +93,14 @@ Template Name: front-page
 	<div class="content-box col-box-wrap">
 		<div class="col-box">
   <div class="img-box">
-    <a href="#">
+    <a href="/voice-headache">
       <img src="<?php echo $url?>/view/images/top_img08.webp" alt="頭痛薬がいらなくなった皆さま" />
     </a>
   </div>
   <h4>頭痛薬がいらなくなった皆さま</h4>
   <div class="txt-box">長年飲んでいた薬が必要なくなった方が多くいらっしゃいます！</div>
   <div class="btn-box">
-    <a href="#">写真をクリックして特設ページへ！</a>
+    <a href="/voice-headache">写真をクリックして特設ページへ！</a>
   </div>
 </div>
 <div class="col-box">
