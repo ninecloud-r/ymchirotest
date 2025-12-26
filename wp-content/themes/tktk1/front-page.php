@@ -8,7 +8,7 @@ Template Name: front-page
 <main>
 <div class="main-img-area">
 	<img class="pc-only" src="<?php echo $url?>/view/images/main_img_pc01.webp" />
-	<img class="sp-only" src="<?php echo $url?>/view/images/main_img_sp.jpg" />
+	<!--<img class="sp-only" src="<?php echo $url?>/view/images/main_img_sp.jpg" />-->
 </div>
 <div class="section concept-section">
 		<div class="container mid">
