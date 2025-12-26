@@ -4,6 +4,7 @@ Template Name: front-page
 */
 ?>
 <?php get_header(); ?>
+<?php $url = get_theme_file_uri(); ?>
 <main>
 <div class="main-img-area">
 	<img class="pc-only" src="./view/images/main_img_pc01.webp" />
