@@ -140,6 +140,7 @@
 <?php the_title_attribute(); ?>
 </h1>
 </div>
+</div>
 
         <?php else: ?>
         <?php endif; ?>
