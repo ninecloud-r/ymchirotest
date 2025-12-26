@@ -113,9 +113,8 @@
 
     
 
-
-<?php if ( is_home() || is_front_page() ) : ?>
 <main>
+<?php if ( is_home() || is_front_page() ) : ?>
 <div class="main-img-area">
   <img class="pc-only" src="<?php echo $url?>/view/images/main_img_pc01.webp" />
   <img class="sp-only" src="<?php echo $url?>/view/images/main_img_sp.jpg" />
@@ -134,11 +133,11 @@
   </ul>
 </div>
 </div>
-<main>
+<div class="page-wrapper">
 <div class="page-title-area">
 <div class="container">
 <h1>
-<div class="jp-title"> <?php the_title_attribute(); ?> </div>
+<?php the_title_attribute(); ?>
 </h1>
 <p class="description-area">
 <?php the_field('description') ?></p>
