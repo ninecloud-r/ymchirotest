@@ -411,29 +411,15 @@ main.under-page {
 }
 
 .page-title-area {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 60px;
-  padding-bottom: 60px;
 }
 
 .page-title h1 {
-  font-weight: normal;
-  border-left: 3px solid #005999;
-  text-align: left;
-  padding-left: 20px;
-}
-
-.page-title h1 .en-title {
-  display: inline;
-  font-size: 18px;
-  margin-right: 10px;
-}
-
-.page-title h1 .jp-title {
-  display: inline;
-  font-size: 27px;
+      padding: 8px 0 8px 16px;
+    background: -webkit-repeating-linear-gradient(-45deg, #ebedf0, #ebedf0 3px, #fff 3px, #fff 8px);
+    background: repeating-linear-gradient(-45deg, #ebedf0, #ebedf0 3px, #fff 3px, #fff 8px);
+    border-top: solid 2px #66270a;
+    border-bottom: solid 2px #66270a;
+    color: #462d14;
 }
 
 
