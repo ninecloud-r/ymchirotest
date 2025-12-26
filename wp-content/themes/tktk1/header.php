@@ -50,7 +50,7 @@
           <span class="emp">TEL: 046-204-8003</span></p>
         </div>
         <div class="header-btn">
-          <a href="./contact">予約・お問い合わせ</a>
+          <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>">予約・お問い合わせ</a>
         </div>
       </div>
     </div>
@@ -74,14 +74,14 @@
                     </a>
                   </li>
                   <li>
-            <a href="./company">
+            <a href="<?php echo esc_url( home_url( '/aboutus' ) ); ?>">
                       <span class="jp-title">
                         当院について
                       </span>
                     </a>
                   </li>
                   <li>
-            <a href="./concept">
+            <a href="<?php echo esc_url( home_url( '/voice' ) ); ?>">
                       <span class="jp-title">
                         ご利用者様の声
                       </span>
@@ -89,7 +89,7 @@
                     </a>
                   </li>
                   <li>
-            <a href="./results">
+            <a href="<?php echo esc_url( home_url( '/treatment' ) ); ?>">
                       <span class="jp-title">
                         施術と料金
                       </span>
@@ -97,7 +97,7 @@
                     </a>
                   </li>
                   <li>
-            <a href="./contact">
+            <a href="<?php echo esc_url( home_url( '/accsess' ) ); ?>">
                       <span class="jp-title">
                         アクセス
                       </span>
