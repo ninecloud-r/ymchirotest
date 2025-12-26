@@ -1,38 +1,68 @@
 <?php get_header(); ?>
 
-<main class="under-page single-main">
-  <div class="container lg">
-    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-      
-      <article class="post-content">
-        <header class="post-header">
-          <div class="post-meta">
-            <time datetime="<?php echo get_the_date('Y-m-d'); ?>"><?php echo get_the_date(); ?></time>
-            <span class="post-category"><?php the_category(', '); ?></span>
-          </div>
-          <h1 class="post-title"><?php the_title(); ?></h1>
-        </header>
+<main class="archive-main">
+    <div class="container mid">
+        
+        <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+            
+            <article class="post">
+                <div class="page-title-area">
+                    <h1 class="page-title-box"><span><?php the_title(); ?></span></h1>
+                    <div class="date-box">
+                        <time datetime="<?php echo get_the_date('Y-m-d'); ?>">
+                            <?php the_time('Y/m/d'); ?>
+                        </time>
+                    </div>
+                </div>
 
-        <?php if (has_post_thumbnail()) : ?>
-          <div class="post-thumbnail">
-            <?php the_post_thumbnail('large'); ?>
-          </div>
-        <?php endif; ?>
+                <div class="entry-content-box-wrapper">
+                    <div class="link-box">
+                        <div class="tag"><?php the_tags( '', '' ); ?></div>
+                    </div>
 
-        <div class="entry-body">
-          <?php the_content(); ?>
-        </div>
+                    <div class="entry-body">
+                        <?php the_content(); ?>
+                    </div>
 
-        <footer class="post-footer">
-          <div class="post-nav">
-            <div class="prev"><?php previous_post_link('%link', '← 前の記事'); ?></div>
-            <div class="next"><?php next_post_link('%link', '次の記事 →'); ?></div>
-          </div>
-        </footer>
-      </article>
+                    <div class="tag-term-wrap">
+                        <ul>
+                            <?php
+                            $posttags = get_tags();
+                            if ($posttags) {
+                                foreach($posttags as $tag) {
+                                    echo ' <li><a href="' . get_tag_link($tag->term_id) . '">' . $tag->name . '</a> ('. $tag->count .')</li>';
+                                }
+                            }
+                            ?>
+                        </ul>
+                    </div>
 
-    <?php endwhile; endif; ?>
-  </div>
-</main>
+                    <div class="pager-box-wrap">
+                        <div class="prev-btn pager-box">
+                            <?php previous_post_link('%link', '« 前の記事へ<br>%title', TRUE); ?>
+                        </div>
+                        <div class="next-btn pager-box">
+                            <?php next_post_link('%link', '次の記事へ »<br>%title' , TRUE); ?>
+                        </div>
+                    </div>
 
-<?php get_footer(); ?>
+                    <div class="btn-box">
+                        <div class="btn btn-readmore">
+                            <?php 
+                            $cats = get_the_category();
+                            $cat = $cats[0];
+                            // 親カテゴリーがあれば親、なければ現在のカテゴリー名を表示してリンク
+                            $cat_name = ($cat->parent) ? get_category($cat->parent)->cat_name : $cat->cat_name;
+                            $cat_link = ($cat->parent) ? get_category_link($cat->parent) : get_category_link($cat->term_id);
+                            ?>
+                            <a href="<?php echo esc_url($cat_link); ?>">
+                                <?php echo esc_html($cat_name); ?>一覧へ →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+        <?php endwhile; endif; ?>
+
+    </div></main><?php get_footer(); ?>
