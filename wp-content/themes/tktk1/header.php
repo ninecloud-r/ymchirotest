@@ -135,14 +135,10 @@
 </div>
 <div class="page-wrapper">
 <div class="page-title-area">
-<div class="container">
+<div class="page-title">
 <h1>
 <?php the_title_attribute(); ?>
 </h1>
-<p class="description-area">
-<?php the_field('description') ?></p>
-</div>
-
 </div>
 
         <?php else: ?>
