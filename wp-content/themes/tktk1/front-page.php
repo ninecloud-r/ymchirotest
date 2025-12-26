@@ -12,7 +12,7 @@ Template Name: front-page
 <div class="section concept-section">
 		<div class="container mid">
 			<div class="section-img">
-	<img src="./view/images/top_img01.webp" />
+	<img src="<?php echo $url?>/view/images/top_img01.webp" />
 				</div>
 				<div class="description-area">
 					しっかりした施術で<br>
@@ -37,7 +37,7 @@ Template Name: front-page
 脳と体の連携は保たれます</p>
 
 </div>
-<div class="img-box"><img src="./view/images/top_img03.webp" /></div>
+<div class="img-box"><img src="<?php echo $url?>/view/images/top_img03.webp" /></div>
 </div>
 </div>
 </div>
@@ -45,7 +45,7 @@ Template Name: front-page
 <div class="section concept-section">
 		<div class="container mid">
 			<div class="section-img">
-	<img src="./view/images/top_img04.webp" />
+	<img src="<?php echo $url?>/view/images/top_img04.webp" />
 				</div>
 			</div>
 			</div>
@@ -62,7 +62,7 @@ Template Name: front-page
 何種類も体調不良があっても</p>
 
 </div>
-<div class="img-box"><img src="./view/images/top_img02.webp" /></div>
+<div class="img-box"><img src="<?php echo $url?>/view/images/top_img02.webp" /></div>
 </div>
 </div>
 </div>
@@ -71,7 +71,7 @@ Template Name: front-page
 <div class="section concept-section">
 		<div class="container mid">
 			<div class="section-img">
-	<img src="./view/images/top_img06.webp" />
+	<img src="<?php echo $url?>/view/images/top_img06.webp" />
 				</div>
 				<div class="description-area">
 					てくてくの施術は、体が勝手に不調の克服を<br>
@@ -79,7 +79,7 @@ Template Name: front-page
 していくように、仕向けていくためのものです。
 					</div>
 					<div class="section-img">
-	<img src="./view/images/top_img05.webp" />
+	<img src="<?php echo $url?>/view/images/top_img05.webp" />
 </div>
 			</div>
 			</div>
@@ -88,7 +88,7 @@ Template Name: front-page
 <div class="section top-col-section col01">
 	<div class="content-box">
 		<div class="img-box">
-		<img src="./view/images/top_img07.webp" />
+		<img src="<?php echo $url?>/view/images/top_img07.webp" />
 		</div>
 	</div>
 </div>
@@ -98,7 +98,7 @@ Template Name: front-page
 		<div class="col-box">
   <div class="img-box">
     <a href="#">
-      <img src="./view/images/top_img08.webp" alt="頭痛薬がいらなくなった皆さま" />
+      <img src="<?php echo $url?>/view/images/top_img08.webp" alt="頭痛薬がいらなくなった皆さま" />
     </a>
   </div>
   <h4>頭痛薬がいらなくなった皆さま</h4>
@@ -110,7 +110,7 @@ Template Name: front-page
 <div class="col-box">
   <div class="img-box">
     <a href="#">
-      <img src="./view/images/top_img09.webp" alt="頭痛薬がいらなくなった皆さま" />
+      <img src="<?php echo $url?>/view/images/top_img09.webp" alt="頭痛薬がいらなくなった皆さま" />
     </a>
   </div>
   <h4>不眠を解消された皆さま</h4>
@@ -122,7 +122,7 @@ Template Name: front-page
 <div class="col-box">
   <div class="img-box">
     <a href="#">
-      <img src="./view/images/top_img10.gif" alt="頭痛薬がいらなくなった皆さま" />
+      <img src="<?php echo $url?>/view/images/top_img10.gif" alt="頭痛薬がいらなくなった皆さま" />
     </a>
   </div>
   <h4>坐骨神経痛を解消された皆さま</h4>
@@ -177,15 +177,15 @@ Template Name: front-page
 		</div>
 		<div class="col-box-wrap">
 			<div class="col-box">
-				<div class="img-box"><img src="./view/images/top_voi01.webp" alt="" /></div>
+				<div class="img-box"><img src="<?php echo $url?>/view/images/top_voi01.webp" alt="" /></div>
 				<div class="text-box">肩こりからくる頭痛</div>
 			</div>
 			<div class="col-box">
-				<div class="img-box"><img src="./view/images/top_voi02.webp" alt="" /></div>
+				<div class="img-box"><img src="<?php echo $url?>/view/images/top_voi02.webp" alt="" /></div>
 				<div class="text-box">肩こりからくる頭痛</div>
 			</div>
 			<div class="col-box">
-				<div class="img-box"><img src="./view/images/top_voi03.webp" alt="" /></div>
+				<div class="img-box"><img src="<?php echo $url?>/view/images/top_voi03.webp" alt="" /></div>
 				<div class="text-box">肩こりからくる頭痛</div>
 			</div>
 		</div>
@@ -273,7 +273,7 @@ Template Name: front-page
       <article class="blog-item">
         <a href="#">
           <div class="blog-img">
-            <img src="./view/images/top_voi04.webp" alt="記事タイトル">
+            <img src="<?php echo $url?>/view/images/top_voi04.webp" alt="記事タイトル">
             <span class="category-tag">コラム</span>
           </div>
           <div class="blog-text">
@@ -287,7 +287,7 @@ Template Name: front-page
       <article class="blog-item">
         <a href="#">
           <div class="blog-img">
-            <img src="./view/images/top_voi04.webp" alt="記事タイトル">
+            <img src="<?php echo $url?>/view/images/top_voi04.webp" alt="記事タイトル">
             <span class="category-tag news">お知らせ</span>
           </div>
           <div class="blog-text">
