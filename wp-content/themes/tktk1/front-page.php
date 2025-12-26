@@ -4,11 +4,6 @@ Template Name: front-page
 */
 ?>
 <?php get_header(); ?>
-    <?php
-define("inc_title","神奈川県大和市の整体院てくてくカイロプラクティック整体院");
-define("inc_page_title","");
-define("inc_description","神奈川県大和市の整体院てくてくカイロプラクティック整体院【頭痛・不眠・坐骨神経痛】にお悩みの方は、ぜひ一度お試しください。");
-include("header.php"); ?>
 <main>
 <div class="main-img-area">
 	<img class="pc-only" src="./view/images/main_img_pc01.webp" />
