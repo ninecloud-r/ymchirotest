@@ -324,6 +324,11 @@ header .container {
   width: 100%;  
 }
 
+.gnav li a:hover {
+    color: #947E33; /* 文字をゴールドに */
+    transition: 0.3s;
+}
+
 footer {
   background-color: #fff;
 }
