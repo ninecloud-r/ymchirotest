@@ -399,11 +399,31 @@ main.under-page {
   line-height: 2;
   margin-left: auto;
   margin-right: auto;
-  font-size: 14px;
+  font-size: 16px;
 }
+
+
+.page-wrapper h2 {
+    padding: 8px 0 8px 12px;
+    border-left: solid 4px #4f3b14;
+    background-color: #f0f0f0;
+    margin: 56px 0 40px 0;
+    line-height: 1.5;
+    color: #462d14;
+}
+
+.page-wrapper h3 {
+    color: #462d14;
+    font-size: 20px;
+    font-weight: bold;
+  }
 
 .page-wrapper p {
   margin-bottom: 40px;
+}
+
+.page-wrapper .kanja-result{
+  color: red;
 }
 
 .page-title-area-wrap {  
