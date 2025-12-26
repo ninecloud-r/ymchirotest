@@ -5,11 +5,6 @@ Template Name: front-page
 ?>
 <?php get_header(); ?>
 <?php $url = get_theme_file_uri(); ?>
-<main>
-<div class="main-img-area">
-	<img class="pc-only" src="<?php echo $url?>/view/images/main_img_pc01.webp" />
-	<!--<img class="sp-only" src="<?php echo $url?>/view/images/main_img_sp.jpg" />-->
-</div>
 <div class="section concept-section">
 		<div class="container mid">
 			<div class="section-img">
