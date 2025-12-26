@@ -279,7 +279,7 @@ header .container {
 
 .gnav-box {
   border-top: 1px solid #fff;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid rgba(255,255,255,0.7);
   background: #66270a;
 }
 
@@ -291,37 +291,37 @@ header .container {
   display: flex;
   justify-content: space-between;
   padding-right: 30px;
-  border-right: 1px solid #fff;
 }
 
 .gnav li {
   width: 20%;
-  border-left: 1px solid #fff;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  position: relative; /* これが重要！::afterの基準点になります */
+}
+
+/* 最後のメニュー（右端）の線は消す設定 */
+.gnav li:last-child::after {
+  display: none;
+}
+
+.gnav li::after {
+  content: ""; /* 文字は入れず空にする */
+  position: absolute;
+  top: 50%; /* 上から50%の位置 */
+  right: 15px;
+  transform: translateY(-50%); /* 垂直中央に配置 */
+  width: 1px;
+  height: 20px; /* ここで線の長さを調整できます */
+  background-color: #fff;
+  opacity: 0.5; /* 少し透過させると上品になります */
 }
 
 .gnav li a{
+  position: relative;
   display: block;
   color: #fff;
   width: 100%;  
-  padding-bottom: 15px;
-  padding-top: 15px;
-  padding-left: 20px;
-  padding-right:20px;
-}
-
-.gnav li a .jp-title {
-  font-size: 15px;
-  font-weight: bold;
-  line-height: 18px;
-}
-.gnav li a .en-title {
-  font-size: 12px;
-  line-height: 16px;
-  letter-spacing: 1px;
-
-}
-
-.gnav span {
 }
 
 footer {
