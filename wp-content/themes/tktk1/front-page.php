@@ -7,8 +7,8 @@ Template Name: front-page
 <?php $url = get_theme_file_uri(); ?>
 <main>
 <div class="main-img-area">
-	<img class="pc-only" src="./view/images/main_img_pc01.webp" />
-	<img class="sp-only" src="./view/images/main_img_sp.jpg" />
+	<img class="pc-only" src="<?php echo $url?>/view/images/main_img_pc01.webp" />
+	<img class="sp-only" src="<?php echo $url?>/view/images/main_img_sp.jpg" />
 </div>
 <div class="section concept-section">
 		<div class="container mid">
