@@ -113,8 +113,9 @@
 
     
 
-<main>
+
 <?php if ( is_home() || is_front_page() ) : ?>
+<main>
 <div class="main-img-area">
   <img class="pc-only" src="<?php echo $url?>/view/images/main_img_pc01.webp" />
   <img class="sp-only" src="<?php echo $url?>/view/images/main_img_sp.jpg" />
@@ -125,16 +126,6 @@
 	$slug = $page->post_name;
 	$subtitle = ucfirst($slug);
 ?>
-<div class="page-title-area">
-<div class="container">
-<h2>
-<div class="en-title">
-<?php echo $subtitle; ?> </div>
-<div class="jp-title"> <?php the_title_attribute(); ?> </div>
-</h2>
-<p class="description-area">
-<?php the_field('description') ?></p>
-</div>
 <div class="bread-crumb">
 <div class="container">
   <ul>
@@ -143,6 +134,16 @@
   </ul>
 </div>
 </div>
+<main>
+<div class="page-title-area">
+<div class="container">
+<h1>
+<div class="jp-title"> <?php the_title_attribute(); ?> </div>
+</h1>
+<p class="description-area">
+<?php the_field('description') ?></p>
+</div>
+
 </div>
 
         <?php else: ?>
