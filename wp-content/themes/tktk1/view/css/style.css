@@ -1067,6 +1067,58 @@ main.under-page {
   padding-top: 60px;
 }
 
+/* --- アーカイブ（記事一覧）全体の調整 --- */
+.archive-main .container {
+    max-width: 1000px; /* 一覧は少し広めが見やすいです */
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* 記事カードのレイアウト調整 */
+.blog-contents-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: flex-start;
+}
+
+/* 各記事カード */
+.blog-item {
+    width: calc(33.333% - 20px); /* 3カラム */
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* 記事タイトルの高さを揃えてガタつきを防ぐ */
+.blog-text .post-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #66270a; /* 先生のテーマカラー */
+    margin: 10px 0;
+    line-height: 1.5;
+    height: 3em; /* 2行分確保して高さを揃える */
+    overflow: hidden;
+}
+
+/* カテゴリーラベル */
+.category-tag {
+    background: #66270a;
+    color: #fff;
+    padding: 2px 8px;
+    font-size: 11px;
+    border-radius: 3px;
+}
+
 .entry-content-box-wrapper {
   padding-left: 20px;
   padding-right: 20px;
@@ -2034,5 +2086,12 @@ footer {
     font-size: 20px;
     padding: 10px;
   }
+
+/* スマホ対応：1カラムに */
+    .blog-item {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
 
 }
