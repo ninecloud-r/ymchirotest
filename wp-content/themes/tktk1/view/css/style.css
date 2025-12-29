@@ -1064,12 +1064,21 @@ main.under-page {
 .archive-main .container {
   max-width: 800px;
   background: #fff;
-  padding-top: 80px;
+  padding-top: 60px;
 }
 
 .entry-content-box-wrapper {
   padding-left: 20px;
   padding-right: 20px;
+}
+
+.entry-content-box-wrapper h2 {
+    padding: 8px 0 8px 12px;
+    border-left: solid 4px #4f3b14;
+    background-color: #f0f0f0;
+    margin: 56px 0 40px 0;
+    line-height: 1.5;
+    color: #462d14;
 }
 
 .archive-main img{
@@ -1144,6 +1153,9 @@ content: "";
 
 .archive-main .page-title-area{
     text-align: left;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 40px;
 }
 
 .archive-main .date-box{
