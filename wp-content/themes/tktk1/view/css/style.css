@@ -1056,8 +1056,6 @@ main.under-page {
 }
 
 .archive-main {
-  margin-top: 0;
-  padding-top: 0;
     line-height: 1.8;
     padding-bottom: 80px;
     font-size: 16px;
@@ -1066,6 +1064,10 @@ main.under-page {
 .archive-main .container {
   max-width: 800px;
   background: #fff;
+  padding-top: 80px;
+}
+
+.entry-content-box-wrapper {
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -1099,6 +1101,11 @@ main.under-page {
   top: 8px;
   right: 5px;
   transform: rotate(-135deg);
+}
+
+.page-title-area .page-title-box {
+    margin-top: 0;
+    padding-top: 0;
 }
 
 .page-title-area h2 .en-title {
