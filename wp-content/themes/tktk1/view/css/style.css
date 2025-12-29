@@ -1359,6 +1359,135 @@ content: "";
     margin-bottom: 1.5em;
 }
 
+/*-- 大規模修正 in Gemini *--/
+
+/* ==========================================================================
+   Variables (テーマカラーの一括管理)
+   ========================================================================== */
+:root {
+  --main-color: #66270a;      /* 先生こだわりの茶色 */
+  --main-dark: #3d1d08;       /* さらに深い茶色 */
+  --accent-gold: #947E33;     /* 落ち着いたゴールド */
+  --bg-beige: #fdfbf6;        /* 優しい背景色 */
+  --text-dark: #462d14;       /* 読みやすい茶系の文字色 */
+}
+
+/* ==========================================================================
+   Reset & Base
+   ========================================================================== */
+html, body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, div {
+  margin: 0;
+  padding: 0;
+}
+* { box-sizing: border-box; }
+
+body {
+  -webkit-text-size-adjust: 100%;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  color: #444;
+  font-size: 14px;
+}
+
+li { list-style: none; }
+a { text-decoration: none; color: #1A0DAB; }
+a:hover { opacity: 0.8; }
+img { max-width: 100%; height: auto; }
+
+/* ==========================================================================
+   Global Navigation (ナビゲーションを茶色に)
+   ========================================================================== */
+.gnav-box {
+  background: var(--main-color);
+  border-top: 1px solid #fff;
+}
+
+.gnav li a {
+  color: #fff;
+}
+
+.gnav li a:hover {
+  color: var(--accent-gold);
+}
+
+/* ==========================================================================
+   Single Page (記事詳細・アーカイブ)
+   ========================================================================== */
+/* !importantを使わず、親要素（.archive-mainや.page-wrapper）を
+   頭に付けることで優先順位を上げ、確実に上書きします。
+*/
+
+/* ナビ下の隙間対策と全体の背景 */
+.archive-main {
+  line-height: 1.8;
+  padding-bottom: 80px;
+}
+
+.archive-main .container {
+  max-width: 800px;
+  background: #fff;
+  margin: 0 auto;
+}
+
+/* 記事タイトル周りの装飾を青から茶色へ */
+.archive-main .page-title h1 {
+  margin-top: 0; /* 隙間の原因を削除 */
+  padding: 12px 0 12px 16px;
+  background: repeating-linear-gradient(-45deg, #f8f8f8, #f8f8f8 3px, #fff 3px, #fff 8px);
+  border-top: solid 2px var(--main-color);
+  border-bottom: solid 2px var(--main-color);
+  color: var(--text-dark);
+}
+
+/* 本文内の見出し（h2） */
+.archive-main .entry-content-box-wrapper h2,
+.page-wrapper h2 {
+  padding: 12px 0 12px 15px;
+  border-left: solid 5px var(--main-color);
+  background-color: #f9f4f0;
+  margin: 45px 0 25px 0;
+  color: var(--text-dark);
+}
+
+/* ==========================================================================
+   Blog & News (一覧ページ・セクション)
+   ========================================================================== */
+/* カテゴリーバッジや日付ラベルの青を茶色へ */
+.blog-icon .time-box,
+.category-tag {
+  background-color: var(--main-color);
+  color: #fff;
+}
+
+/* セクションタイトルの下の線 */
+.section-title h2::after {
+  background: var(--main-color);
+}
+
+/* 特徴セクションのタイトル */
+.feature-section .col-title {
+  color: var(--main-color);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+footer {
+  border-top: 4px solid var(--main-color);
+  background-color: #fff;
+}
+
+/* ==========================================================================
+   Legacy Overrides (「残滓」クラスへの対応)
+   ========================================================================== */
+/* HTML側で直せない古いクラスも、
+   変数を使うことで一括で茶色に強制同期させます。
+*/
+.main-color-00 { color: var(--main-color); }
+.main-color-01 { color: var(--main-dark); }
+.main-color-02 { color: var(--main-color); }
+
+
+
 @media screen and (max-width: 1200px) {
 
   .container {
@@ -1897,5 +2026,13 @@ footer {
     .blog-item {
         width: 100%; /* スマホは1カラム */
     }
+
+/* ==========================================================================
+   Responsive (既存のメディアクエリを統合)
+   ========================================================================== */
+  .archive-main .page-title h1 {
+    font-size: 20px;
+    padding: 10px;
+  }
 
 }
