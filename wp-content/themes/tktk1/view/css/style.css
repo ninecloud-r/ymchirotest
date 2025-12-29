@@ -1349,9 +1349,7 @@ content: "";
 
 /* 本文内の見出しを装飾してメリハリをつける */
 .entry-body h2 {
-    border-left: 5px solid #226; /* テーマカラーの線を左に入れる */
     padding: 10px 15px;
-    background: #f8f8f8;
     margin: 40px 0 20px;
 }
 
