@@ -1347,6 +1347,19 @@ content: "";
     box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* 軽い影をつけると浮かび上がって綺麗です */
 }
 
+/* 本文内の見出しを装飾してメリハリをつける */
+.entry-body h2 {
+    border-left: 5px solid #226; /* テーマカラーの線を左に入れる */
+    padding: 10px 15px;
+    background: #f8f8f8;
+    margin: 40px 0 20px;
+}
+
+/* 本文の行間を広げて読みやすくする */
+.entry-body p {
+    line-height: 1.8;
+    margin-bottom: 1.5em;
+}
 
 @media screen and (max-width: 1200px) {
 
