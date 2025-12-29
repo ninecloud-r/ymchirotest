@@ -1313,6 +1313,19 @@ content: "";
     opacity: 0.8;
 }
 
+/* 記事詳細のメイン画像エリア */
+.entry-main-visual {
+    margin-bottom: 30px; /* 画像と本文の間の余白 */
+    text-align: center;
+}
+
+.entry-main-visual img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* 少し角を丸くすると今風になります */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* 軽い影をつけると浮かび上がって綺麗です */
+}
+
 
 @media screen and (max-width: 1200px) {
 

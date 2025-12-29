@@ -15,6 +15,13 @@
                     </div>
                 </div>
 
+                <div class="entry-main-visual">
+                    <?php if ( has_post_thumbnail() ) : ?>
+                        <?php the_post_thumbnail('large'); ?>
+                    <?php elseif ( function_exists('first_image') && first_image() ) : ?>
+                        <img src="<?php echo first_image(); ?>" alt="<?php the_title(); ?>">
+                    <?php endif; ?>
+                </div>
                 <div class="entry-content-box-wrapper">
                     <div class="link-box">
                         <div class="tag"><?php the_tags( '', '' ); ?></div>
@@ -51,7 +58,6 @@
                             <?php 
                             $cats = get_the_category();
                             $cat = $cats[0];
-                            // 親カテゴリーがあれば親、なければ現在のカテゴリー名を表示してリンク
                             $cat_name = ($cat->parent) ? get_category($cat->parent)->cat_name : $cat->cat_name;
                             $cat_link = ($cat->parent) ? get_category_link($cat->parent) : get_category_link($cat->term_id);
                             ?>
@@ -65,4 +71,6 @@
 
         <?php endwhile; endif; ?>
 
-    </div></main><?php get_footer(); ?>
+    </div>
+</main>
+<?php get_footer(); ?>
