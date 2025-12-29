@@ -85,6 +85,11 @@ function post_firstimg() {
     return $firstimg;
 }
 
+function my_theme_setup() {
+    // アイキャッチ画像をサポートする
+    add_theme_support('post-thumbnails');
+}
+add_action('after_setup_theme', 'my_theme_setup');
 
 ?>
 
