@@ -1722,6 +1722,22 @@ footer {
     margin-top: 5px;
 }
 
+/* --- 画像調整の修正版 --- */
+.archive-column .img-box {
+    width: 100%;
+    aspect-ratio: 4 / 3; 
+    overflow: hidden;
+    background-color: #f0f0f0;
+    display: block; /* box要素として確実に認識させる */
+}
+
+.archive-column .img-box img {
+    width: 100% !important;  /* 横幅を強制的に100%に */
+    height: 100% !important; /* 高さも強制的に100%に */
+    object-fit: cover;       /* その上で、比率を保って切り抜き */
+    display: block;
+}
+
 /* レスポンシブ：中画面（タブレット） */
 @media screen and (max-width: 1024px) {
     .blog-item {
