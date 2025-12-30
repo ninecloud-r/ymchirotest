@@ -37,7 +37,14 @@
                                             <img src="<?php echo get_template_directory_uri(); ?>/view/images/top_img09.jpg" alt="no image" />
                                         <?php endif; ?>
                                     </div>
-                                    <p class="category-box">カテゴリー取得</p>
+                                    <p class="category-box">
+    <?php
+    $categories = get_the_category();
+    if (!empty($categories)) {
+        echo esc_html($categories[0]->name);
+    }
+    ?>
+</p>
                                 </div>
                                 <div class="blog-text">
                                 <h4><?php the_title(); ?></h4>
