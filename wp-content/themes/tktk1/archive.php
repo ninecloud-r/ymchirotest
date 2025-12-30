@@ -1,27 +1,29 @@
 <?php get_header(); ?>
 
-<div class="section blog-section">
-    <div class="container lg">
-        <div class="section-title">
-            <h2 class="en-title">
-                <?php
+<main class="archive-main">
+    <div class="container mid">
+        <div class="page-title-area">
+                    <h1 class="page-title-box"><span><?php
                 if (is_category()) {
                     single_cat_title();
                 } elseif (is_archive()) {
                     echo 'Archives';
                 }
-                ?>
-            </h2>
-            <p class="jp-title">
-                <?php 
+                ?><?php 
                 if (is_category('voice')) {
                     echo 'お客様の声';
                 } else {
                     echo 'お知らせとブログ';
                 }
-                ?>
-            </p>
-        </div>
+                ?></span></h1>
+                    
+                </div>
+                
+            
+            
+                
+            
+       
 
         <div class="contents-area">
             <div class="contents-wrap">
@@ -53,7 +55,6 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    
 
 <?php get_footer(); ?>
