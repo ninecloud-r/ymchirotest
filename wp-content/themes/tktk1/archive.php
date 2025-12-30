@@ -19,8 +19,6 @@
                     
                 </div>
                 
-            
-            
                 
             
        
@@ -39,12 +37,15 @@
                                             <img src="<?php echo get_template_directory_uri(); ?>/view/images/top_img09.jpg" alt="no image" />
                                         <?php endif; ?>
                                     </div>
-                                    <p class="time-box"><?php the_time('Y/m/d'); ?></p>
+                                    <p class="category-box">カテゴリー取得</p>
                                 </div>
+                                <div class="blog-text">
                                 <h4><?php the_title(); ?></h4>
                                 <?php if (!is_category('information')) : // お知らせ以外なら抜粋を表示する場合 ?>
                                     <p class="excerpt"><?php echo wp_trim_words(get_the_excerpt(), 40, '...'); ?></p>
                                 <?php endif; ?>
+                                <p class="time-box"><?php the_time('Y/m/d'); ?></p>
+                            </div>
                             </a>
                         </li>
                     <?php endwhile; endif; ?>
