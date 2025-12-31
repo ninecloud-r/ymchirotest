@@ -1610,7 +1610,7 @@ footer {
 }
 
 /* --- 画像が絶対に隙間を作らないようにする --- */
-.archive-column .img-box {
+#.archive-column .img-box {
     width: 100%;
     aspect-ratio: 4 / 3; /* ここを 3 / 2 などに変更すれば元サイトに近づきます */
     overflow: hidden;
@@ -1620,7 +1620,7 @@ footer {
     justify-content: center;
 }
 
-.archive-column .img-box img {
+#.archive-column .img-box img {
     width: 100%;
     height: 100%;
     min-width: 100%;  /* 横幅が足りなくても強制的に広げる */
@@ -1689,13 +1689,6 @@ footer {
     overflow: hidden;
     background-color: #f0f0f0;
     display: block; /* box要素として確実に認識させる */
-}
-
-.archive-column .img-box img {
-    width: 100% !important;  /* 横幅を強制的に100%に */
-    height: 100% !important; /* 高さも強制的に100%に */
-    object-fit: cover;       /* その上で、比率を保って切り抜き */
-    display: block;
 }
 
 /* レスポンシブ：中画面（タブレット） */
