@@ -77,5 +77,5 @@ $(function(){
 
 jQuery(function($) {
     // 記事一覧の画像から width と height 属性を削除
-    $('.archive-column .img-box img').removeAttr('width').removeAttr('height');
+    $('.archive-column .img-box img').removeAttr('width').removeAttr('height').removeAttr('sizes');
 });
