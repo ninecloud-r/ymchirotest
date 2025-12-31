@@ -34,13 +34,24 @@
                     <div class="tag-term-wrap">
                         <ul>
                             <?php
-                            $posttags = get_tags();
-                            if ($posttags) {
-                                foreach($posttags as $tag) {
-                                    echo ' <li><a href="' . get_tag_link($tag->term_id) . '">' . $tag->name . '</a> ('. $tag->count .')</li>';
-                                }
-                            }
-                            ?>
+// 'parts' タクソノミーの全カテゴリーを取得
+$terms = get_terms( array(
+    'taxonomy' => 'parts',
+    'hide_empty' => true, // 記事が0件のカテゴリーは表示しない
+) );
+
+if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+    foreach ( $terms as $term ) {
+        // 各カテゴリーのリンクを取得
+        $term_link = get_term_link( $term );
+        
+        // リンクがエラーでない場合に表示
+        if ( ! is_wp_error( $term_link ) ) {
+            echo '<li><a href="' . esc_url( $term_link ) . '">' . esc_html( $term->name ) . '</a> (' . $term->count . ')</li>';
+        }
+    }
+}
+?>
                         </ul>
                     </div>
 
