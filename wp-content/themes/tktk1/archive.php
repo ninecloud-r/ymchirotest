@@ -66,16 +66,18 @@
                 <?php endif; ?>
 
                 <p class="excerpt">
-                    <?php 
-                    if ( $current_pt === 'voice' && $v_letter ) {
-                        // voiceでお手紙データがある場合
-                        echo wp_trim_words(esc_html($v_letter), 45, '...');
-                    } else {
-                        // それ以外、またはお手紙データがない場合
-                        echo wp_trim_words(get_the_excerpt(), 40, '...');
-                    }
-                    ?>
-                </p>
+    <?php 
+    if ( $current_pt === 'voice' && $v_letter ) {
+        // 1. strip_tags で <br> などのHTMLタグを完全に消去
+        // 2. その後、wp_trim_words で文字数を制限する
+        $clean_letter = strip_tags($v_letter);
+        echo wp_trim_words($clean_letter, 45, '...');
+    } else {
+        // 通常の抜粋（こちらも念のためタグを除去）
+        echo wp_trim_words(strip_tags(get_the_excerpt()), 40, '...');
+    }
+    ?>
+</p>
 
                 <p class="time-box"><?php the_time('Y/m/d'); ?></p>
             </div>
