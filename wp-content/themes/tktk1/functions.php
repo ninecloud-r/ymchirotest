@@ -92,14 +92,25 @@ function my_theme_setup() {
 add_action('after_setup_theme', 'my_theme_setup');
 
 /**
- * 画像の sizes 属性を強制的に 100vw (または空) に上書きする
+ * 画像の sizes 属性および Easy IO (EIO) 独自の属性を削除する
  */
+// srcsetに伴う sizes 属性の自動計算を停止
 add_filter( 'wp_calculate_image_sizes', '__return_false', 99 );
+
 add_filter( 'wp_get_attachment_image_attributes', function( $attr ) {
+    // 標準の sizes 属性を削除
     if ( isset( $attr['sizes'] ) ) {
-        // sizesを削除、または強制的に100%に
         unset( $attr['sizes'] ); 
     }
+    
+    // Easy IO (EIO) が付与する独自属性を削除
+    if ( isset( $attr['data-eio-rwidth'] ) ) {
+        unset( $attr['data-eio-rwidth'] );
+    }
+    if ( isset( $attr['data-eio-rheight'] ) ) {
+        unset( $attr['data-eio-rheight'] );
+    }
+
     return $attr;
 }, 99 );
 
