@@ -60,6 +60,13 @@
     }
     ?>
 </p>
+<p style="color:red;">
+    現在紐づいている分類: 
+    <?php
+    $taxonomies = get_post_taxonomies();
+    print_r($taxonomies);
+    ?>
+</p>
                                 </div>
                                 <div class="blog-text">
                                 <h4><?php the_title(); ?></h4>
@@ -73,7 +80,7 @@
 </div>
 
 
-                                
+
                                 <?php if (!is_category('information')) : // お知らせ以外なら抜粋を表示する場合 ?>
                                     <p class="excerpt"><?php echo wp_trim_words(get_the_excerpt(), 40, '...'); ?></p>
                                 <?php endif; ?>
