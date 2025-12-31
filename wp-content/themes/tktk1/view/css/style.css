@@ -1686,9 +1686,8 @@ footer {
 /* --- 画像調整の修正版 --- */
 .archive-column .img-box {
     width: 100%;
-    aspect-ratio: 4 / 3; 
+    aspect-ratio: 4 / 2; 
     overflow: hidden;
-    background-color: #f0f0f0;
     display: block; /* box要素として確実に認識させる */
 }
 
