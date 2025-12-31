@@ -63,6 +63,17 @@
                                 </div>
                                 <div class="blog-text">
                                 <h4><?php the_title(); ?></h4>
+
+<div style="background:#fff9e6; border:1px solid #ffcc00; padding:10px; font-size:12px; color:#333;">
+    <strong>【デバッグ情報】</strong><br>
+    投稿ID: <?php the_ID(); ?><br>
+    投稿タイプ: <?php echo get_post_type(); ?><br>
+    --- カスタムフィールド一覧 ---<br>
+    <pre><?php print_r( get_post_custom() ); ?></pre>
+</div>
+
+
+                                
                                 <?php if (!is_category('information')) : // お知らせ以外なら抜粋を表示する場合 ?>
                                     <p class="excerpt"><?php echo wp_trim_words(get_the_excerpt(), 40, '...'); ?></p>
                                 <?php endif; ?>
