@@ -56,13 +56,26 @@ if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
                     </div>
 
                     <div class="pager-box-wrap">
-                        <div class="prev-btn pager-box">
-                            <?php previous_post_link('%link', '« 前の記事へ<br>%title', TRUE); ?>
-                        </div>
-                        <div class="next-btn pager-box">
-                            <?php next_post_link('%link', '次の記事へ »<br>%title' , TRUE); ?>
-                        </div>
-                    </div>
+    
+    <?php 
+    // 前の記事へのリンクを取得して変数に入れる
+    $prev_link = get_previous_post_link('%link', '« 前の記事へ<br>%title', TRUE, '', 'parts'); 
+    if ( $prev_link ) : ?>
+        <div class="prev-btn pager-box">
+            <?php echo $prev_link; ?>
+        </div>
+    <?php endif; ?>
+
+    <?php 
+    // 次の記事へのリンクを取得して変数に入れる
+    $next_link = get_next_post_link('%link', '次の記事へ »<br>%title', TRUE, '', 'parts'); 
+    if ( $next_link ) : ?>
+        <div class="next-btn pager-box">
+            <?php echo $next_link; ?>
+        </div>
+    <?php endif; ?>
+
+</div>
 
                     <div class="btn-box">
                         <div class="btn btn-readmore">
