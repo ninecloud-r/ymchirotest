@@ -1,38 +1,37 @@
 @charset "utf-8";
-/* css reset */
 
-html, body,
-ul, ol, li,
-h1, h2, h3, h4, h5, h6, p, div {
+/* ==========================================================================
+   Variables (テーマカラーの一括管理) 出力var
+   ========================================================================== */
+:root {
+  --main-color: #66270a;      /* 先生こだわりの茶色 */
+  --main-dark: #3d1d08;       /* さらに深い茶色 */
+  --accent-gold: #947E33;     /* 落ち着いたゴールド */
+  --accent-gold: #9b8d77;     /* さらに落ち着いたゴールド */
+  --bg-beige: #fdfbf6;        /* 優しい背景色 */
+  --text-dark: #462d14;       /* 読みやすい茶系の文字色 */
+}
+
+/* ==========================================================================
+   Reset & Base
+   ========================================================================== */
+html, body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, div {
   margin: 0;
   padding: 0;
 }
-
-*{box-sizing: border-box;}
+* { box-sizing: border-box; }
 
 body {
   -webkit-text-size-adjust: 100%;
-  font-family: "Helvetica Neue",
-  Arial,
-  "Hiragino Kaku Gothic ProN",
-  "Hiragino Sans",
-  Meiryo,
-  sans-serif;
-  color: #444444;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  color: #444;
   font-size: 14px;
 }
-li {
-  list-style: none;
-}
 
-a {
-  text-decoration: none;
-    color: #1A0DAB;
-}
-
-a:hover {
-    opacity: 0.8;
-}
+li { list-style: none; }
+a { text-decoration: none; color: #1A0DAB; }
+a:hover { opacity: 0.8; }
+img { max-width: 100%; height: auto; }
 
 h1, h2, h3, h4, h5 {
   margin-top: 10px;
@@ -50,18 +49,6 @@ h1, h2, h3, h4, h5 {
 table {
     border-collapse: collapse;
 }
-
-img {
-    max-width: 100%;
-}
-
-.main-color-00{    color: #022358;}
-.main-color-01{    color: #011a40;}
-.main-color-02{    color: #66270a;}
-.sub-color01{ color: #947E33;}
-.accent-color01 {color: #fdfbf6}
-.btn-color-01{ color: #9b8d77}
-.btn-color-01{ color: #3d1d08}
 
 /* site comp bg */
 /*--
@@ -1476,38 +1463,6 @@ content: "";
 }
 
 /*-- 大規模修正 in Gemini *--/
-
-/* ==========================================================================
-   Variables (テーマカラーの一括管理)
-   ========================================================================== */
-:root {
-  --main-color: #66270a;      /* 先生こだわりの茶色 */
-  --main-dark: #3d1d08;       /* さらに深い茶色 */
-  --accent-gold: #947E33;     /* 落ち着いたゴールド */
-  --bg-beige: #fdfbf6;        /* 優しい背景色 */
-  --text-dark: #462d14;       /* 読みやすい茶系の文字色 */
-}
-
-/* ==========================================================================
-   Reset & Base
-   ========================================================================== */
-html, body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, div {
-  margin: 0;
-  padding: 0;
-}
-* { box-sizing: border-box; }
-
-body {
-  -webkit-text-size-adjust: 100%;
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-  color: #444;
-  font-size: 14px;
-}
-
-li { list-style: none; }
-a { text-decoration: none; color: #1A0DAB; }
-a:hover { opacity: 0.8; }
-img { max-width: 100%; height: auto; }
 
 /* ==========================================================================
    Global Navigation (ナビゲーションを茶色に)

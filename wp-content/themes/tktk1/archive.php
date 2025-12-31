@@ -40,17 +40,23 @@
                                     
     <p class="category-box">
     <?php
-    // カスタム投稿のタクソノミー（voice_categoryなど）にも対応できる汎用的な取得方法
-    $terms = get_the_terms(get_the_ID(), 'category'); // 通常のカテゴリー
+    // 現在の投稿タイプを取得（'voice'などが返ってくるはず）
+    $post_type = get_post_type();
+    // このテーマの規則「投稿タイプ名-cat」でタクソノミー名を指定
+    $taxonomy = $post_type . '-cat';
     
-    // もし「お客様の声」がカスタム投稿で、独自のタクソノミー（例：voice_cat）なら
-    // 下記のコメントアウトを外して調整してください
-    // $terms = get_the_terms(get_the_ID(), 'voice_cat'); 
+    $terms = get_the_terms( get_the_ID(), $taxonomy );
 
-    if ($terms && !is_wp_error($terms)) {
-        echo esc_html($terms[0]->name);
+    if ( $terms && ! is_wp_error( $terms ) ) {
+        echo esc_html( $terms[0]->name );
     } else {
-        echo 'お客様の声'; // 取得できない場合のデフォルト表示
+        // もし上記でダメなら通常のカテゴリーを試す
+        $categories = get_the_category();
+        if ( ! empty( $categories ) ) {
+            echo esc_html( $categories[0]->name );
+        } else {
+            echo 'お客様の声';
+        }
     }
     ?>
 </p>
