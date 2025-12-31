@@ -40,23 +40,13 @@
                                     
     <p class="category-box">
     <?php
-    // 現在の投稿タイプを取得（'voice'などが返ってくるはず）
-    $post_type = get_post_type();
-    // このテーマの規則「投稿タイプ名-cat」でタクソノミー名を指定
-    $taxonomy = $post_type . '-cat';
-    
-    $terms = get_the_terms( get_the_ID(), $taxonomy );
+    // デバッグで判明した 'parts' を指定して取得
+    $terms = get_the_terms(get_the_ID(), 'parts');
 
-    if ( $terms && ! is_wp_error( $terms ) ) {
-        echo esc_html( $terms[0]->name );
+    if ($terms && !is_wp_error($terms)) {
+        echo esc_html($terms[0]->name);
     } else {
-        // もし上記でダメなら通常のカテゴリーを試す
-        $categories = get_the_category();
-        if ( ! empty( $categories ) ) {
-            echo esc_html( $categories[0]->name );
-        } else {
-            echo 'お客様の声';
-        }
+        echo 'お客様の声';
     }
     ?>
 </p>
