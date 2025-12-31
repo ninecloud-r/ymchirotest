@@ -91,5 +91,19 @@ function my_theme_setup() {
 }
 add_action('after_setup_theme', 'my_theme_setup');
 
+/**
+ * 画像の sizes 属性を強制的に 100vw (または空) に上書きする
+ */
+add_filter( 'wp_calculate_image_sizes', '__return_false', 99 );
+add_filter( 'wp_get_attachment_image_attributes', function( $attr ) {
+    if ( isset( $attr['sizes'] ) ) {
+        // sizesを削除、または強制的に100%に
+        unset( $attr['sizes'] ); 
+    }
+    return $attr;
+}, 99 );
+
 ?>
+
+
 
