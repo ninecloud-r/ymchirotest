@@ -76,6 +76,13 @@ $(function(){
 });
 
 jQuery(function($) {
-    // 記事一覧の画像から width と height 属性を削除
-    $('.archive-column .img-box img').removeAttr('width').removeAttr('height').removeAttr('sizes');
+    // ページ読み込み時と、念のため少し遅らせて実行
+    function removeImageAttributes() {
+        $('.archive-column .img-box img').removeAttr('width height sizes data-eio-rwidth data-eio-rheight');
+    }
+
+    removeImageAttributes();
+    
+    // Lazy Load完了後に再付与されるのを防ぐため、少し遅延させて実行
+    setTimeout(removeImageAttributes, 500);
 });
