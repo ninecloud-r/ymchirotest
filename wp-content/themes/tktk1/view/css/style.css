@@ -422,9 +422,6 @@ main.under-page {
   border-bottom: 1px solid #999;
 }
 
-.page-title-area {
-}
-
 .page-title h1 {
       padding: 8px 0 8px 16px;
     background: -webkit-repeating-linear-gradient(-45deg, #ebedf0, #ebedf0 3px, #fff 3px, #fff 8px);
@@ -1208,11 +1205,6 @@ main.under-page {
   top: 8px;
   right: 5px;
   transform: rotate(-135deg);
-}
-
-.page-title-area {
-  margin-top: 40px;
-  margin-bottom: 40px;
 }
 
 .page-title-area .page-title-box {
