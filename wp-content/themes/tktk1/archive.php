@@ -3,11 +3,12 @@
 <main class="archive-main">
     <div class="container mid">
         <div class="page-title-area">
+            <div class="page-title">
             <h1 class="page-title-box">
-                <span>
+                
                 <?php
                 if ( is_post_type_archive('voice') || is_tax('parts') ) {
-                    echo 'お客様の声';
+                    echo 'ご利用者様の声';
                 } elseif ( is_category() ) {
                     single_cat_title();
                 } elseif ( is_tag() ) {
@@ -16,8 +17,9 @@
                     echo 'お知らせとブログ';
                 }
                 ?>
-                </span>
+                
             </h1>
+            </div>
         </div>
 
         <div class="contents-area">
