@@ -52,10 +52,7 @@
                                         </span>
                                     </h2>
                                 </div>
-                                <div class="voice-letter-box">
-                                    <h3>いただいたお手紙の内容</h3>
-                                    <p class="v-letter"><?php echo nl2br(esc_html(get_post_meta($post_id, 'letter', true))); ?></p>
-                                </div>
+                                <div class="content-box voice-content">
                                 <div class="voice-images">
                                     <?php 
                                     foreach (['image', 'image02', 'image03'] as $f) {
@@ -66,7 +63,17 @@
                                     }
                                     ?>
                                 </div>
+                                <div class="voice-letter-box">
+                                    
+                                    <p class="v-letter"><?php echo nl2br(esc_html(get_post_meta($post_id, 'letter', true))); ?></p>
+                                    <p class="menseki">※施術効果には個人差があります。</p>
+                                </div>
+                                </div>
+                                <h2 class="voice-title">
+                            てくてくスタッフより
+                        </h2>
                             </section>
+
                         <?php endif; ?>
 
                         <div class="entry-body">

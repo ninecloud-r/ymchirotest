@@ -1517,10 +1517,37 @@ content: "";
 
 .archive-main .entry-content-box-wrapper .voice-title {
   padding: 0;
+  background: none;
   border-left: none;
   border-bottom: 1px solid var(--title-border);
   font-size: 18px;
   font-weight: normal;
+}
+
+.voice-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.voice-content .voice-images {
+  width: 40%;
+}
+
+.voice-content .voice-images {
+  width: 40%;
+}
+
+.voice-letter-box {
+  background: var(--bg-creep);
+  padding: 20px;
+}
+
+.menseki {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: #ee2222;
+  font-size: 13px;
 }
 
 /* ==========================================================================
