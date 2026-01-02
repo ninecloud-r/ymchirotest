@@ -9,11 +9,14 @@
             
             <article class="post">
                 <div class="page-title-area">
-                    <h1 class="page-title-box"><span><?php the_title(); ?></span></h1>
+                    <div class="page-title">
+                    <h1 class="page-title-box">
+                        <span><?php the_title(); ?></span></h1>
                     <div class="date-box">
                         <time datetime="<?php echo get_the_date('Y-m-d'); ?>">
                             <?php the_time('Y/m/d'); ?>
                         </time>
+                    </div>
                     </div>
                 </div>
 
