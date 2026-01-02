@@ -1,22 +1,20 @@
 <?php get_header(); ?>
 
-<main class="archive-main">
+<div class="archive-main">
     <div class="container mid">
         
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); 
-            $current_pt = get_post_type(); // 投稿タイプを取得
+            $current_pt = get_post_type();
+            $post_id    = get_the_ID();
         ?>
             
             <article class="post">
                 <div class="page-title-area">
                     <div class="page-title">
-                    <h1 class="page-title-box">
-                        <span><?php the_title(); ?></span></h1>
-                    <div class="date-box">
-                        <time datetime="<?php echo get_the_date('Y-m-d'); ?>">
-                            <?php the_time('Y/m/d'); ?>
-                        </time>
-                    </div>
+                        <h1 class="page-title-box"><span><?php the_title(); ?></span></h1>
+                        <div class="date-box">
+                            <time datetime="<?php echo get_the_date('Y-m-d'); ?>"><?php the_time('Y/m/d'); ?></time>
+                        </div>
                     </div>
                 </div>
 
@@ -29,86 +27,63 @@
                 </div>
 
                 <div class="entry-content-box-wrapper">
+                    
                     <div class="link-box">
                         <div class="tag">
                             <?php 
                             if ( $current_pt === 'voice' ) {
-                                // お客様の声の場合は紐づいているpartsタクソノミーを表示
-                                the_terms( get_the_ID(), 'parts', '', ' ' ); 
+                                the_terms( $post_id, 'parts', '', ' ' ); 
                             } else {
-                                // 通常投稿の場合は標準のタグを表示
                                 the_tags( '', '' ); 
                             }
                             ?>
                         </div>
                     </div>
+
                     <div class="entry-content">
-    <?php if ( get_post_type() === 'voice' ) : ?>
-        <article class="voice-detail">
-    <div class="voice-header">
-        <h2 class="voice-title">
-            <span class="v-name"><?php echo esc_html(get_post_meta(get_the_ID(), 'name', true)); ?> 様</span>
-            <span class="v-meta">
-                （<?php echo esc_html(get_post_meta(get_the_ID(), 'age', true)); ?>代 
-                <?php echo esc_html(get_post_meta(get_the_ID(), 'gender', true)); ?>）
-            </span>
-        </h2>
-    </div>
+                        <?php if ( $current_pt === 'voice' ) : ?>
+                            <section class="voice-detail">
+                                <div class="voice-header">
+                                    <h2 class="voice-title">
+                                        <span class="v-name"><?php echo esc_html(get_post_meta($post_id, 'name', true)); ?> 様</span>
+                                        <span class="v-meta">
+                                            （<?php echo esc_html(get_post_meta($post_id, 'age', true)); ?>代 
+                                            <?php echo esc_html(get_post_meta($post_id, 'gender', true)); ?>）
+                                        </span>
+                                    </h2>
+                                </div>
+                                <div class="voice-letter-box">
+                                    <h3>いただいたお手紙の内容</h3>
+                                    <p class="v-letter"><?php echo nl2br(esc_html(get_post_meta($post_id, 'letter', true))); ?></p>
+                                </div>
+                                <div class="voice-images">
+                                    <?php 
+                                    foreach (['image', 'image02', 'image03'] as $f) {
+                                        $id = get_post_meta($post_id, $f, true);
+                                        if ($id) {
+                                            echo '<div class="v-img-item">' . wp_get_attachment_image($id, 'medium') . '</div>';
+                                        }
+                                    }
+                                    ?>
+                                </div>
+                            </section>
+                        <?php endif; ?>
 
-    <div class="voice-letter-box">
-        <h3>いただいたお手紙の内容</h3>
-        <p class="v-letter">
-            <?php 
-                $letter = get_post_meta(get_the_ID(), 'letter', true);
-                echo nl2br(esc_html($letter)); 
-            ?>
-        </p>
-    </div>
-
-    <div class="voice-images">
-        <?php 
-        $images = ['image', 'image02', 'image03'];
-        foreach ($images as $img_field) :
-            $img_id = get_post_meta(get_the_ID(), $img_field, true);
-            if ($img_id) :
-                // 画像IDからURLとaltを取得（中サイズで出力）
-                $img_src = wp_get_attachment_image_src($img_id, 'medium');
-                $img_alt = get_post_meta($img_id, '_wp_attachment_image_alt', true);
-        ?>
-                <div class="v-img-item">
-                    <img src="<?php echo esc_url($img_src[0]); ?>" alt="<?php echo esc_attr($img_alt); ?>">
-                </div>
-        <?php 
-            endif;
-        endforeach; 
-        ?>
-    </div>
-</article>
-    <?php else : ?>
-    <?php endif; ?>
-</div>
-
-                    <div class="entry-body">
-                        <?php the_content(); ?>
+                        <div class="entry-body">
+                            <?php the_content(); ?>
+                        </div>
                     </div>
 
                     <div class="tag-term-wrap">
                         <ul>
                             <?php
-                            // voiceの時だけ「parts」タクソノミーの一覧を出す
                             if ( $current_pt === 'voice' ) {
-                                $terms = get_terms( array( 'taxonomy' => 'parts', 'hide_empty' => true ) );
-                                if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
-                                    foreach ( $terms as $term ) {
-                                        $term_link = get_term_link( $term );
-                                        if ( ! is_wp_error( $term_link ) ) {
-                                            echo '<li><a href="' . esc_url( $term_link ) . '">' . esc_html( $term->name ) . '</a> (' . $term->count . ')</li>';
-                                        }
-                                    }
+                                $terms = get_terms(['taxonomy' => 'parts', 'hide_empty' => true]);
+                                foreach ( (array)$terms as $t ) {
+                                    echo '<li><a href="'.get_term_link($t).'">'.esc_html($t->name).'</a> ('.$t->count.')</li>';
                                 }
                             } else {
-                                // 通常投稿の場合は標準のカテゴリー一覧を出す（必要であれば）
-                                wp_list_categories( array( 'title_li' => '', 'show_count' => true ) );
+                                wp_list_categories(['title_li' => '', 'show_count' => true]);
                             }
                             ?>
                         </ul>
@@ -118,38 +93,24 @@
                         <div class="btn btn-readmore">
                             <?php 
                             if ( $current_pt === 'voice' ) : 
-                                // voiceの場合はカスタム投稿アーカイブへ
-                                $archive_link = get_post_type_archive_link( 'voice' );
-                            ?>
-                                <a href="<?php echo esc_url($archive_link); ?>">お客様の声一覧へ →</a>
-                            <?php else : 
-                                // 通常投稿の場合は親カテゴリーまたはカテゴリー一覧へ
+                                $back_url = get_post_type_archive_link('voice');
+                                $back_txt = 'お客様の声一覧へ →';
+                            else : 
                                 $cats = get_the_category();
-                                if ( !empty($cats) ) {
-                                    $cat = $cats[0];
-                                    $cat_name = ($cat->parent) ? get_category($cat->parent)->cat_name : $cat->cat_name;
-                                    $cat_link = ($cat->parent) ? get_category_link($cat->parent) : get_category_link($cat->term_id);
-                                }
+                                $back_url = (!empty($cats)) ? get_category_link($cats[0]->term_id) : home_url();
+                                $back_txt = (!empty($cats)) ? $cats[0]->name . '一覧へ →' : 'ホームへ →';
+                            endif;
                             ?>
-                                <a href="<?php echo esc_url($cat_link); ?>"><?php echo esc_html($cat_name); ?>一覧へ →</a>
-                            <?php endif; ?>
+                            <a href="<?php echo esc_url($back_url); ?>"><?php echo esc_html($back_txt); ?></a>
                         </div>
                     </div>
 
                     <div class="pager-box-wrap" style="display: flex; justify-content: space-between; margin-top: 40px;">
                         <?php 
-                        $tax_name = ($current_pt === 'voice') ? 'parts' : 'category';
-                        
-                        $prev_link = get_previous_post_link('%link', '« 前の記事へ<br>%title', TRUE, '', $tax_name); 
-                        if ( $prev_link ) : ?>
-                            <div class="prev-btn pager-box" style="flex: 1; text-align: left;"><?php echo $prev_link; ?></div>
-                        <?php endif; ?>
-
-                        <?php 
-                        $next_link = get_next_post_link('%link', '次の記事へ »<br>%title', TRUE, '', $tax_name); 
-                        if ( $next_link ) : ?>
-                            <div class="next-btn pager-box" style="flex: 1; text-align: right;"><?php echo $next_link; ?></div>
-                        <?php endif; ?>
+                        $tax = ($current_pt === 'voice') ? 'parts' : 'category';
+                        previous_post_link('<div class="prev-btn pager-box" style="flex:1; text-align:left;">%link</div>', '« 前の記事へ<br>%title', TRUE, '', $tax);
+                        next_post_link('<div class="next-btn pager-box" style="flex:1; text-align:right;">%link</div>', '次の記事へ »<br>%title', TRUE, '', $tax);
+                        ?>
                     </div>
 
                 </div>
@@ -158,6 +119,6 @@
         <?php endwhile; endif; ?>
 
     </div>
-</main>
+</div>
 
 <?php get_footer(); ?>
