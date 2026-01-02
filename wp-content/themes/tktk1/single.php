@@ -42,7 +42,46 @@
                             ?>
                         </div>
                     </div>
+<article class="voice-detail">
+    <div class="voice-header">
+        <h2 class="voice-title">
+            <span class="v-name"><?php echo esc_html(get_post_meta(get_the_ID(), 'name', true)); ?> 様</span>
+            <span class="v-meta">
+                （<?php echo esc_html(get_post_meta(get_the_ID(), 'age', true)); ?>代 
+                <?php echo esc_html(get_post_meta(get_the_ID(), 'gender', true)); ?>）
+            </span>
+        </h2>
+    </div>
 
+    <div class="voice-letter-box">
+        <h3>いただいたお手紙の内容</h3>
+        <p class="v-letter">
+            <?php 
+                $letter = get_post_meta(get_the_ID(), 'letter', true);
+                echo nl2br(esc_html($letter)); 
+            ?>
+        </p>
+    </div>
+
+    <div class="voice-images">
+        <?php 
+        $images = ['image', 'image02', 'image03'];
+        foreach ($images as $img_field) :
+            $img_id = get_post_meta(get_the_ID(), $img_field, true);
+            if ($img_id) :
+                // 画像IDからURLとaltを取得（中サイズで出力）
+                $img_src = wp_get_attachment_image_src($img_id, 'medium');
+                $img_alt = get_post_meta($img_id, '_wp_attachment_image_alt', true);
+        ?>
+                <div class="v-img-item">
+                    <img src="<?php echo esc_url($img_src[0]); ?>" alt="<?php echo esc_attr($img_alt); ?>">
+                </div>
+        <?php 
+            endif;
+        endforeach; 
+        ?>
+    </div>
+</article>
                     <div class="entry-body">
                         <?php the_content(); ?>
                     </div>

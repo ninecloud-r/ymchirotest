@@ -24,6 +24,18 @@
 
         <div class="contents-area">
             <div class="contents-wrap">
+                <div class="page-description">
+    <?php
+
+    if(is_post_type_archive('voice')){
+    // 固定ページ ID:6974 (voice-description) の情報を取得
+    $voice_page = get_post(6974);
+    if ($voice_page) {
+        // 本文を取得し、改行などを整形して出力
+        echo apply_filters('the_content', $voice_page->post_content);
+    }}
+    ?>
+</div>
                 <ul class="blog-contents-wrap">
                     <?php if (have_posts()) : while (have_posts()) : the_post(); 
     $current_pt = get_post_type();
