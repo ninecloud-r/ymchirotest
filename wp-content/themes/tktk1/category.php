@@ -3,11 +3,12 @@
 <main class="archive-main">
     <div class="container mid">
         <div class="page-title-area">
+            <div class="page-title">
             <h1 class="page-title-box">
-                <span>
+                
                 <?php
                 if ( is_post_type_archive('voice') || is_tax('parts') ) {
-                    echo 'お客様の声';
+                    echo 'ご利用者様の声';
                 } elseif ( is_category() ) {
                     single_cat_title();
                 } elseif ( is_tag() ) {
@@ -16,12 +17,25 @@
                     echo 'お知らせとブログ';
                 }
                 ?>
-                </span>
+                
             </h1>
+            </div>
         </div>
 
         <div class="contents-area">
             <div class="contents-wrap">
+                <div class="page-description">
+    <?php
+
+    if(is_post_type_archive('voice')){
+    // 固定ページ ID:6974 (voice-description) の情報を取得
+    $voice_page = get_post(6974);
+    if ($voice_page) {
+        // 本文を取得し、改行などを整形して出力
+        echo apply_filters('the_content', $voice_page->post_content);
+    }}
+    ?>
+</div>
                 <ul class="blog-contents-wrap">
                     <?php if (have_posts()) : while (have_posts()) : the_post(); 
     $current_pt = get_post_type();
@@ -66,16 +80,18 @@
                 <?php endif; ?>
 
                 <p class="excerpt">
-                    <?php 
-                    if ( $current_pt === 'voice' && $v_letter ) {
-                        // voiceでお手紙データがある場合
-                        echo wp_trim_words(esc_html($v_letter), 45, '...');
-                    } else {
-                        // それ以外、またはお手紙データがない場合
-                        echo wp_trim_words(get_the_excerpt(), 40, '...');
-                    }
-                    ?>
-                </p>
+    <?php 
+    if ( $current_pt === 'voice' && $v_letter ) {
+        // 1. strip_tags で <br> などのHTMLタグを完全に消去
+        // 2. その後、wp_trim_words で文字数を制限する
+        $clean_letter = strip_tags($v_letter);
+        echo wp_trim_words($clean_letter, 45, '...');
+    } else {
+        // 通常の抜粋（こちらも念のためタグを除去）
+        echo wp_trim_words(strip_tags(get_the_excerpt()), 40, '...');
+    }
+    ?>
+</p>
 
                 <p class="time-box"><?php the_time('Y/m/d'); ?></p>
             </div>
