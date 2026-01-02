@@ -7,9 +7,11 @@
   --main-color: #66270a;      /* 先生こだわりの茶色 */
   --main-dark: #3d1d08;       /* さらに深い茶色 */
   --accent-gold: #947E33;     /* 落ち着いたゴールド */
-  --accent-gold: #9b8d77;     /* さらに落ち着いたゴールド */
+  --accent-wgold: #9b8d77;     /* さらに落ち着いたゴールド */
   --bg-beige: #fdfbf6;        /* 優しい背景色 */
   --text-dark: #462d14;       /* 読みやすい茶系の文字色 */
+  --border-p: #4f3b14;        /* しっとりしたブラウン */
+  --border-gray: #eee;        /* うっすらグレー */
 }
 
 /* ==========================================================================
@@ -29,7 +31,7 @@ body {
 }
 
 li { list-style: none; }
-a { text-decoration: none; color: #1A0DAB; }
+a { text-decoration: none; color: var(--accent-wgold); }
 a:hover { opacity: 0.8; }
 img { max-width: 100%; height: auto; }
 
@@ -1644,18 +1646,18 @@ footer {
     justify-content: center;
     width: 40px;
     height: 40px;
-    border: 1px solid #66270a; /* 先生の茶色 */
+    border: 1px solid var(--border-p); /* 先生の茶色 */
     border-radius: 50%; /* ここで丸く */
-    color: #66270a;
+    color: var(--border-p);
     text-decoration: none;
     transition: all 0.3s ease;
 }
 
 /* 現在のページのスタイル（背景を茶色に） */
 .pagination .nav-links .current {
-    background-color: #66270a;
+    background-color: var(--border-gray);
     color: #fff;
-    border-color: #66270a;
+    border-color: var(--border-p);
 }
 
 .pagination .nav-links a:hover {
