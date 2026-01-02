@@ -42,7 +42,9 @@
                             ?>
                         </div>
                     </div>
-<article class="voice-detail">
+                    <div class="entry-content">
+    <?php if ( get_post_type() === 'voice' ) : ?>
+        <article class="voice-detail">
     <div class="voice-header">
         <h2 class="voice-title">
             <span class="v-name"><?php echo esc_html(get_post_meta(get_the_ID(), 'name', true)); ?> 様</span>
@@ -82,6 +84,10 @@
         ?>
     </div>
 </article>
+    <?php else : ?>
+    <?php endif; ?>
+</div>
+
                     <div class="entry-body">
                         <?php the_content(); ?>
                     </div>
