@@ -12,6 +12,8 @@
   --text-dark: #462d14;       /* 読みやすい茶系の文字色 */
   --border-p: #4f3b14;        /* しっとりしたブラウン */
   --border-gray: #ddd;        /* うっすらグレー */
+  --bg-creep: #f9f6f2;        /* creeeeeeepな背景 */
+  --title-border: #BE9362;    /* タイトルなボーダー */
 }
 
 /* ==========================================================================
@@ -1511,6 +1513,14 @@ content: "";
   background-color: #f9f4f0;
   margin: 45px 0 25px 0;
   color: var(--text-dark);
+}
+
+.archive-main .entry-content-box-wrapper .voice-title {
+  padding: 0;
+  border-left: none;
+  border-bottom: 1px solid var(--title-border);
+  font-size: 18px;
+  font-weight: normal;
 }
 
 /* ==========================================================================
