@@ -1646,7 +1646,7 @@ footer {
     justify-content: center;
     width: 40px;
     height: 40px;
-    border: 1px solid var(--border-p); /* 先生の茶色 */
+    border: 1px solid var(--border-gray); /* 先生の茶色 */
     border-radius: 50%; /* ここで丸く */
     color: var(--border-p);
     text-decoration: none;
@@ -1655,7 +1655,7 @@ footer {
 
 /* 現在のページのスタイル（背景を茶色に） */
 .pagination .nav-links .current {
-    background-color: var(--border-gray);
+    background-color: var(--border-p);
     color: #fff;
     border-color: var(--border-p);
 }
