@@ -15,6 +15,7 @@
   --bg-creep: #f9f6f2;        /* creeeeeeepな背景 */
   --title-border: #BE9362;    /* タイトルなボーダー */
   --menseki: #944;            /* 免責カラー */
+  --swiper-theme-color: #eee;
 }
 
 /* ==========================================================================
@@ -489,7 +490,7 @@ main.under-page {
   margin-bottom: 80px;
 }
 
-.section {
+section {
   margin-bottom: 40px;
 }
 
