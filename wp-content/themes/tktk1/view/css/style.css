@@ -760,6 +760,11 @@ main.under-page {
     padding-bottom: 120px;
 }
 
+.blog-section .container {
+  max-width: 840px;
+  width: 100%;
+}
+
 .blog-contents-wrap {
   width: 100%;
     margin-bottom: 50px;
