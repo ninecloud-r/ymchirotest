@@ -214,11 +214,10 @@ Template Name: front-page
 <section class="section blog-section">
   <div class="container">
     <div class="section-title">
-      <h2 class="en-title">BLOG & NEWS</h2>
-      <h3 class="jp-title">ブログ・お知らせ</h3>
+      <h2 class="en-title">新着情報</h2>
     </div>
 
-    <div class="blog-contents-wrap">
+    <ul class="blog-contents-wrap">
       <?php
       $args = array(
           'post_type'      => 'post',
@@ -228,28 +227,30 @@ Template Name: front-page
       $blog_query = new WP_Query($args);
       if ($blog_query->have_posts()) : while ($blog_query->have_posts()) : $blog_query->the_post();
       ?>
-      <article class="blog-item">
-        <a href="<?php the_permalink(); ?>">
-          <div class="blog-img">
+      <li>
+        <a class="archive-column" href="<?php the_permalink(); ?>">
+          <div class="blog-icon">
+            <div class="img-box">
             <?php if (has_post_thumbnail()) : ?>
               <?php the_post_thumbnail('medium'); ?>
             <?php else : ?>
               <img src="<?php echo $url; ?>/view/images/top_voi04.webp" alt="">
             <?php endif; ?>
-            <span class="category-tag"><?php $cat = get_the_category(); echo $cat[0]->name; ?></span>
+            <p class="category-box"><?php $cat = get_the_category(); echo $cat[0]->name; ?></p>
+            </div>
           </div>
           <div class="blog-text">
-            <time class="date"><?php echo get_the_date('Y.m.d'); ?></time>
-            <h4 class="post-title"><?php the_title(); ?></h4>
-            <p class="post-excerpt"><?php echo wp_trim_words(get_the_excerpt(), 40, '...'); ?></p>
+            <h4><?php the_title(); ?></h4>
+            <p class="excerpt"><?php echo wp_trim_words(get_the_excerpt(), 40, '...'); ?></p>
+            <p class="time-box"><?php echo get_the_date('Y.m.d'); ?></p>
           </div>
         </a>
-      </article>
+      </li>
       <?php endwhile; wp_reset_postdata(); endif; ?>
-    </div>
+    </ul>
 
     <div class="btn-box">
-      <a href="<?php echo home_url('/blog'); ?>" class="btn-readmore">記事一覧を見る</a>
+      <a href="<?php echo home_url('/category/blog'); ?>" class="btn-readmore">記事一覧を見る</a>
     </div>
   </div>
 </section>
