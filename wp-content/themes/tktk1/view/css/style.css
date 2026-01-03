@@ -1208,11 +1208,6 @@ main.under-page {
   transform: rotate(-135deg);
 }
 
-.page-title-area .page-title-box {
-    margin-top: 0;
-    padding-top: 0;
-}
-
 .page-title-area h2 .en-title {
   font-weight: normal;
   font-size: 56px;
