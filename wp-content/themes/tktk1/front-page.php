@@ -157,19 +157,36 @@ Template Name: front-page
     <div class="container">
         <div class="section-title">ご利用者様の声<br>（ほかにも色々な不調に対応しております）</div>
         <div class="section-description">長年の不調から解放されたご利用者様のお喜びの声が少しずつ増えてきました</div>
+        
         <div class="col-box-wrap">
-            <div class="col-box">
-                <div class="img-box"><img src="<?php echo $url; ?>/view/images/top_voi01.webp" alt="" /></div>
-                <div class="text-box">肩こりからくる頭痛</div>
-            </div>
-            <div class="col-box">
-                <div class="img-box"><img src="<?php echo $url; ?>/view/images/top_voi02.webp" alt="" /></div>
-                <div class="text-box">肩こりからくる頭痛</div>
-            </div>
-            <div class="col-box">
-                <div class="img-box"><img src="<?php echo $url; ?>/view/images/top_voi03.webp" alt="" /></div>
-                <div class="text-box">肩こりからくる頭痛</div>
-            </div>
+            <?php
+            // カスタム投稿「voice」の最新3件を取得
+            $args = array(
+                'post_type'      => 'voice',
+                'posts_per_page' => 6,
+            );
+            $voice_query = new WP_Query($args);
+            ?>
+
+            <?php if ($voice_query->have_posts()) : ?>
+                <?php while ($voice_query->have_posts()) : $voice_query->the_post(); ?>
+                    <div class="col-box">
+                        <a href="<?php the_permalink(); ?>">
+                            <div class="img-box">
+                                <?php if (has_post_thumbnail()) : ?>
+                                    <?php the_post_thumbnail('full'); ?>
+                                <?php else : ?>
+                                    <img src="<?php echo get_template_directory_uri(); ?>/view/images/top_img09.jpg" alt="no image" />
+                                <?php endif; ?>
+                            </div>
+                            <div class="text-box"><?php the_title(); ?></div>
+                        </a>
+                    </div>
+                <?php endwhile; ?>
+                <?php wp_reset_postdata(); // クエリのリセット ?>
+            <?php else : ?>
+                <p>現在、投稿がありません。</p>
+            <?php endif; ?>
         </div>
     </div>
 </div>
