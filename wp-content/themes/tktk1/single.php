@@ -66,14 +66,19 @@
                                 <div class="voice-letter-box">
                                     
                                     <p class="v-letter">
-                                        <?php 
-    // もしデータの中に最初から <br> が入っている場合は、一旦それを取り除くか、
-    // strip_tags で HTMLタグを無効化してから nl2br を適用します。
-    // $clean_letter = strip_tags($letter); 
-    // echo nl2br(esc_html($clean_letter)); 
-?>
+    <?php 
+        // 1. 現在の投稿からメタデータを直接取得（念のため変数に再代入）
+        $letter_data = get_post_meta(get_the_ID(), 'letter', true);
 
-                                        <?php echo nl2br(esc_html(get_post_meta($post_id, 'letter', true))); ?></p>
+        if ( !empty($letter_data) ) {
+            // 2. 文字列としての "<br>" や "<br />" が混入していたら、本物の改行コードに置換
+            $letter_data = str_replace(array('&lt;br&gt;', '&lt;br /&gt;', '<br>', '<br />'), "\n", $letter_data);
+            
+            // 3. HTMLタグを無効化しつつ、改行コードを <br> に変換して出力
+            echo nl2br(esc_html($letter_data));
+        }
+    ?>
+</p>
                                     <p class="menseki">※施術効果には個人差があります。</p>
                                 </div>
                                 </div>
