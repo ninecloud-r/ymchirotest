@@ -119,7 +119,7 @@
 <?php if ( is_home() || is_front_page() ) : ?>
 <div class="main-img-area">
   <img class="pc-only" src="<?php echo $url?>/view/images/main_img_pc01.webp" />
-  <img class="sp-only" src="<?php echo $url?>/view/images/main_img_sp.jpg" />
+  <img class="sp-only" src="<?php echo $url?>/view/images/main_img_sp.webp" />
 </div>
 <?php elseif(is_page()): ?>
         <?php
