@@ -2380,5 +2380,13 @@ footer {
 .blog-img img {
 }
 
+.feature-section .col-box-wrap {
+  flex-direction: column;
+}
+
+.feature-section .col-box {
+  max-width: 100%;
+  width: 100%;
+}
 
 }
