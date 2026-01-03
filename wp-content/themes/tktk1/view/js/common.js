@@ -86,3 +86,25 @@ jQuery(function($) {
     // Lazy Load完了後に再付与されるのを防ぐため、少し遅延させて実行
     setTimeout(removeImageAttributes, 500);
 });
+
+const swiper = new Swiper('.voice-slider', {
+    loop: true,               // 無限ループ
+    slidesPerView: 1,         // スマホは1枚
+    spaceBetween: 20,         // 間の余白
+    centeredSlides: true,     // 中央配置
+    autoplay: {
+        delay: 3000,          // 3秒ごとに自動再生
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    // PCサイズの時の設定
+    breakpoints: {
+        768: {
+            slidesPerView: 3, // 3枚表示
+            spaceBetween: 30,
+            centeredSlides: false,
+        }
+    }
+});

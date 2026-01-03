@@ -1539,6 +1539,20 @@ content: "";
   padding: 20px;
 }
 
+.voice-slider {
+    padding: 20px 0 40px;
+    overflow: hidden; /* はみ出しを隠す */
+}
+
+.voice-slider .col-box {
+    height: auto; /* 高さを揃える */
+}
+
+/* 矢印の色などを変えたい場合 */
+.swiper-button-next, .swiper-button-prev {
+    color: #333; 
+}
+
 .menseki {
   margin-top: 15px;
   margin-bottom: 15px;

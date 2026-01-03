@@ -158,19 +158,18 @@ Template Name: front-page
         <div class="section-title">ご利用者様の声<br>（ほかにも色々な不調に対応しております）</div>
         <div class="section-description">長年の不調から解放されたご利用者様のお喜びの声が少しずつ増えてきました</div>
         
-        <div class="col-box-wrap">
-            <?php
-            // カスタム投稿「voice」の最新3件を取得
-            $args = array(
-                'post_type'      => 'voice',
-                'posts_per_page' => 6,
-            );
-            $voice_query = new WP_Query($args);
-            ?>
+        <div class="swiper voice-slider">
+            <div class="swiper-wrapper">
+                <?php
+                $args = array(
+                    'post_type'      => 'voice',
+                    'posts_per_page' => 12, // 12件取得
+                );
+                $voice_query = new WP_Query($args);
+                ?>
 
-            <?php if ($voice_query->have_posts()) : ?>
-                <?php while ($voice_query->have_posts()) : $voice_query->the_post(); ?>
-                    <div class="col-box">
+                <?php if ($voice_query->have_posts()) : while ($voice_query->have_posts()) : $voice_query->the_post(); ?>
+                    <div class="swiper-slide col-box">
                         <a href="<?php the_permalink(); ?>">
                             <div class="img-box">
                                 <?php if (has_post_thumbnail()) : ?>
@@ -182,11 +181,11 @@ Template Name: front-page
                             <div class="text-box"><?php the_title(); ?></div>
                         </a>
                     </div>
-                <?php endwhile; ?>
-                <?php wp_reset_postdata(); // クエリのリセット ?>
-            <?php else : ?>
-                <p>現在、投稿がありません。</p>
-            <?php endif; ?>
+                <?php endwhile; wp_reset_postdata(); endif; ?>
+            </div>
+            
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
     </div>
 </div>
