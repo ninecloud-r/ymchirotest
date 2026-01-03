@@ -392,7 +392,8 @@ main.under-page {
   max-width: 800px;
   width: 100%;
   background: #fff;
-  padding: 10px 25px 40px 25px;
+  padding-left: 25px;
+  padding-right: 25px;
   line-height: 2;
   margin-left: auto;
   margin-right: auto;
@@ -497,6 +498,7 @@ main.under-page {
 }
 
 .section {
+  margin-bottom: 40px;
 }
 
 .btn-box {
