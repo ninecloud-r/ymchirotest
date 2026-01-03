@@ -14,6 +14,7 @@
   --border-gray: #ddd;        /* うっすらグレー */
   --bg-creep: #f9f6f2;        /* creeeeeeepな背景 */
   --title-border: #BE9362;    /* タイトルなボーダー */
+  --menseki: #944;            /* 免責カラー */
 }
 
 /* ==========================================================================
@@ -1113,17 +1114,14 @@ main.under-page {
     font-size: 16px;
 }
 
-.archive-main .container {
-  max-width: 800px;
-  background: #fff;
-  padding-top: 60px;
-}
-
 /* --- アーカイブ（記事一覧）全体の調整 --- */
 .archive-main .container {
     max-width: 1000px; /* 一覧は少し広めが見やすいです */
     margin: 0 auto;
-    padding: 60px 20px;
+    background: #fff;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 80px;
 }
 
 /* 記事カードのレイアウト調整 */
@@ -1257,6 +1255,7 @@ content: "";
 
 .archive-main .page-title-area{
     text-align: left;
+    padding-top: 40px;
     padding-bottom: 40px;
 }
 
@@ -1551,7 +1550,7 @@ content: "";
 .menseki {
   margin-top: 15px;
   margin-bottom: 15px;
-  color: #ee2222;
+  color: var(--menseki);
   font-size: 13px;
 }
 
