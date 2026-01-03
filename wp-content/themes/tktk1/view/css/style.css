@@ -800,6 +800,8 @@ section {
 }
 
 .blog-contents-wrap li {
+  max-width: 100%;
+  width: 100%;
   border: 1px solid #eee;
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.08);
     border-radius: 3px;
@@ -811,6 +813,7 @@ section {
 .blog-contents-wrap li a {
   display: flex;
   flex-wrap: wrap;
+  color: #444;
 }
 
 .blog-contents-wrap li .blog-icon {
@@ -820,10 +823,6 @@ section {
 
 .blog-contents-wrap li .blog-text {
   max-width: 60%;
-}
-
-.blog-contents-wrap li a {
-  color: #444;
 }
 
 .blog-contents-wrap li .category-box {
@@ -2329,5 +2328,57 @@ footer {
     .v-img-item {
         width: 100%; /* スマホでは画像も横幅いっぱい */
     }
+
+.line-section {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  font-size: 14px;
+}
+
+.line-section .section-box {
+  padding: 20px 3%;
+  display: inline-block;
+}
+
+.line-section .section-title {
+  font-size: 16px;
+}
+
+.line-section .btn-box a {
+  padding: 8px 3%;
+}
+
+.blog-contents-wrap li {
+  font-size: 13px;
+  }
+
+.blog-contents-wrap li a {
+}
+
+.blog-contents-wrap li .blog-icon {
+}
+
+.blog-contents-wrap li .blog-text {
+}
+
+.blog-contents-wrap li .category-box {
+  font-size: 11px;
+}
+
+.blog-item {
+}
+
+.blog-item:hover {
+}
+
+.blog-item a {
+}
+
+.blog-img {
+}
+
+.blog-img img {
+}
+
 
 }
