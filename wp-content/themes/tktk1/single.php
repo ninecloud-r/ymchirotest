@@ -73,12 +73,16 @@
                             てくてくスタッフより
                         </h2>
                             </section>
-
-                        <?php endif; ?>
-
-                        <div class="entry-body">
+                            <div class="entry-body">
                             <?php the_content(); ?>
-                        </div>
+<p class="menseki">※内容は、当院での施術実績に基づいたものです。全てのケースに当てはまるわけではありません。</p>
+                        <?php else: ?>
+<div class="entry-body">
+                            <?php the_content(); ?>
+                        
+                        <?php endif; ?>
+</div>
+                        
                     </div>
 
                     <div class="tag-term-wrap">
