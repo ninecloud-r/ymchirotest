@@ -1253,7 +1253,8 @@ content: "";
  position: relative;
 }
 
-.archive-main .page-title-area{
+.page-wrapper .page-title-area,
+.archive-main .page-title-area {
     text-align: left;
     padding-top: 40px;
     padding-bottom: 40px;
