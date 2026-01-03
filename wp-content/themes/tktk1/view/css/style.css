@@ -750,6 +750,39 @@ section {
     height: 200px;
 }
 
+/* お客様の声の詳細エリア全体 */
+.voice-detail {
+    display: flex;
+    flex-direction: column; /* 縦に並べる（基本） */
+    gap: 20px;
+}
+
+/* お手紙のボックスを横幅いっぱいに */
+.voice-letter-box {
+    width: 100%;
+    flex: 1; /* 圧迫されないようにする */
+}
+
+/* 画像エリアの調整 */
+.voice-images {
+    display: flex;
+    flex-wrap: wrap; /* 画像が多ければ折り返す */
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.v-img-item {
+    width: 31%; /* 3枚並ぶ計算（余白含め） */
+    min-width: 250px; /* スマホなどで小さくなりすぎないように */
+}
+
+.v-img-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain; /* 画像が歪まないように */
+}
+
 /* --- ブログ・お知らせセクション --- */
 .blog-section {
     background: #fff;
@@ -2292,5 +2325,9 @@ footer {
         margin-bottom: 20px;
     }
 
+/* スマホ用の調整 */
+    .v-img-item {
+        width: 100%; /* スマホでは画像も横幅いっぱい */
+    }
 
 }

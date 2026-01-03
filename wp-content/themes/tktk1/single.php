@@ -65,7 +65,15 @@
                                 </div>
                                 <div class="voice-letter-box">
                                     
-                                    <p class="v-letter"><?php echo nl2br(esc_html(get_post_meta($post_id, 'letter', true))); ?></p>
+                                    <p class="v-letter">
+                                        <?php 
+    // もしデータの中に最初から <br> が入っている場合は、一旦それを取り除くか、
+    // strip_tags で HTMLタグを無効化してから nl2br を適用します。
+    $clean_letter = strip_tags($letter); 
+    echo nl2br(esc_html($clean_letter)); 
+?>
+
+                                        <?php # echo nl2br(esc_html(get_post_meta($post_id, 'letter', true))); ?></p>
                                     <p class="menseki">※施術効果には個人差があります。</p>
                                 </div>
                                 </div>
