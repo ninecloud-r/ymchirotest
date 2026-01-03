@@ -15,7 +15,7 @@
   --bg-creep: #f9f6f2;        /* creeeeeeepな背景 */
   --title-border: #BE9362;    /* タイトルなボーダー */
   --menseki: #944;            /* 免責カラー */
-  --swiper-theme-color: #eee;
+  --swipe-arr: #9b8d77;
 }
 
 /* ==========================================================================
@@ -1551,7 +1551,7 @@ content: "";
 
 /* 矢印の色などを変えたい場合 */
 .swiper-button-next, .swiper-button-prev {
-    color: #333; 
+    color: var(--swipe-arr); 
 }
 
 .menseki {
