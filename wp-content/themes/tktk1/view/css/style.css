@@ -768,7 +768,7 @@ section {
     display: flex;
     flex-wrap: wrap; /* 画像が多ければ折り返す */
     gap: 15px;
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .v-img-item {
@@ -2222,6 +2222,10 @@ footer {
     font-size: 13px;
   }
 
+  .entry-content-box-wrapper {
+    padding: 0;
+  }
+
   .voice-section {
     padding-top: 40px;
     padding-bottom: 40px;
@@ -2248,6 +2252,23 @@ footer {
     .voice-slider {
       padding: 0;
     }
+
+.voice-content {
+  flex-direction: column;
+}
+
+.voice-content .voice-images {
+  width: 100%;
+}
+
+.voice-letter-box {
+  background: var(--bg-creep);
+  padding: 20px;
+}
+
+.voice-detail {
+  gap: auto;
+}
 
 .contact-section .container {
   padding-top: 40px;
