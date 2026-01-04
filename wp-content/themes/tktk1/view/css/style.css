@@ -2087,8 +2087,8 @@ footer {
   }
 
   .section-title h2.en-title {
-    letter-spacing: 5px;
-    font-size: 24px;
+    letter-spacing: 2px;
+    font-size: 20px;
   }
 
   .section-title {
@@ -2275,6 +2275,10 @@ footer {
   font-size: 11px;
 }
 
+.blog-section {
+  padding-bottom: 40px;
+}
+
 .blog-section h4 {
   font-weight: normal;
   line-height: 1.5;
@@ -2452,9 +2456,19 @@ footer {
   max-width: 100%;
 }
 
+.blog-contents-wrap li .blog-text .excerpt {
+  font-size: 13px;
+}
+
 .blog-contents-wrap li .blog-text h4 {
   font-size: 14px;
   font-weight: bold;
+}
+
+.blog-text .time-box {
+  margin-bottom: 0;
+  top: -20px;
+  bottom: auto;
 }
 
 .blog-contents-wrap li .category-box {
@@ -2483,7 +2497,7 @@ footer {
 .feature-section .col-box {
   max-width: 100%;
   width: 100%;
-  padding: 30px 10%;
+  padding: 40px 10% 20px;
   margin-left: 0;
   margin-right: 0;
 }
