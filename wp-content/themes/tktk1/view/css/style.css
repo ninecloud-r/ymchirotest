@@ -1900,6 +1900,7 @@ footer {
   header {
       height: auto;
       overflow: auto;
+      padding: 0;
   }
 
   header .container {
@@ -1929,7 +1930,6 @@ footer {
 .footer-left .logo h1 {
   font-size: 8px;
   margin-top: -2px;
-  padding-left: 4px;
 }
 
 .header-main-wrap {
