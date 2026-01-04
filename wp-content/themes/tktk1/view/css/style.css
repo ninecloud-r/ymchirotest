@@ -2060,6 +2060,10 @@ footer {
     font-size: 18px;
   }
 
+  .archive-main {
+    padding-top: 40px;
+  }
+
   .archive-main iframe {
     min-width: 100%;
     width: 100%!important;
