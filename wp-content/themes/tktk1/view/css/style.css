@@ -1953,6 +1953,10 @@ footer {
     border-left: 0;
   }
 
+  .gnav-box .gnav li::after {
+    display: none;
+}
+
   .fnav {
     padding-left: 5%;
   }
