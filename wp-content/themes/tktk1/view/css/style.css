@@ -2035,6 +2035,11 @@ footer {
   font-size: 16px;
 }
 
+.page-wrapper h3 {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
 .page-wrapper .kanja-result {
   font-size: 13px;
 }
