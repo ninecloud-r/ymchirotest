@@ -1902,9 +1902,15 @@ footer {
       overflow: auto;
   }
 
+  header .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
   .header-left {
     width: 100%;
-    padding-left: 10%;
+    padding-left: 0;
+    text-align: center;
     margin-top: 15px;
       margin-bottom: 15px;
   }
@@ -1924,6 +1930,10 @@ footer {
   font-size: 8px;
   margin-top: -2px;
   padding-left: 4px;
+}
+
+.header-main-wrap {
+  padding: 0;
 }
 
   .header-mid {
