@@ -235,24 +235,17 @@ Template Name: front-page
 
     <ul class="blog-contents-wrap">
       <?php
-      // 取得したいカテゴリーの設定を配列にする
-      $target_categories = array(
-          array('slug' => 'column',      'name' => 'コラム'), // スラッグを column に修正
-          array('slug' => 'blog',        'name' => 'ブログ'),
-          array('slug' => 'information', 'name' => 'お知らせ')
+      // 取得したいカテゴリーのスラッグをカンマ区切りで指定
+      // 合計9件（各3件×3カテゴリー分）を日付順に取得
+      $args = array(
+          'post_type'      => 'post',
+          'category_name'  => 'colum,blog,information', // 実際のスラッグに合わせてください
+          'posts_per_page' => 9, 
+          'no_found_rows'  => true,
       );
+      $blog_query = new WP_Query($args);
 
-      foreach ($target_categories as $cat_info) :
-          $args = array(
-              'post_type'      => 'post',
-              'category_name'  => $cat_info['slug'], // スラッグで指定
-              'posts_per_page' => 3,                 // 各3件ずつ
-              'no_found_rows'  => true,
-          );
-          $cat_query = new WP_Query($args);
-
-          if ($cat_query->have_posts()) : 
-              while ($cat_query->have_posts()) : $cat_query->the_post();
+      if ($blog_query->have_posts()) : while ($blog_query->have_posts()) : $blog_query->the_post();
       ?>
       <li>
         <a class="archive-column" href="<?php the_permalink(); ?>">
@@ -263,7 +256,12 @@ Template Name: front-page
             <?php else : ?>
               <img src="<?php echo $url; ?>/view/images/top_voi04.webp" alt="">
             <?php endif; ?>
-            <p class="category-box"><?php echo $cat_info['name']; ?></p>
+            <p class="category-box">
+                <?php 
+                $cat = get_the_category(); 
+                if($cat) echo $cat[0]->name; 
+                ?>
+            </p>
             </div>
           </div>
           <div class="blog-text">
@@ -273,16 +271,11 @@ Template Name: front-page
           </div>
         </a>
       </li>
-      <?php 
-              endwhile; 
-              wp_reset_postdata(); 
-          endif; 
-      endforeach; 
-      ?>
+      <?php endwhile; wp_reset_postdata(); endif; ?>
     </ul>
 
     <div class="btn-box">
-      <a href="<?php echo home_url('/blog_list'); // 全体の一覧、または適切なURLへ ?>" class="btn-readmore">記事一覧を見る</a>
+      <a href="<?php echo home_url('/category/blog'); ?>" class="btn-readmore">記事一覧を見る</a>
     </div>
   </div>
 </section>
