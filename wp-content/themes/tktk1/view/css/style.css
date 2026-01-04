@@ -2072,6 +2072,7 @@ footer {
     
     .archive-main .date-box{
         font-size: 12px;
+        margin-top: 5px;
     }
     
     article.post {
@@ -2268,6 +2269,10 @@ footer {
 
 .voice-detail {
   gap: auto;
+}
+
+.voice-title {
+  margin: 20px 0;
 }
 
 .contact-section .container {
