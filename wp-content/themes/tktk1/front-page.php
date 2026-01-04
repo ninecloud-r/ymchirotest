@@ -235,13 +235,24 @@ Template Name: front-page
 
     <ul class="blog-contents-wrap">
       <?php
-      $args = array(
-          'post_type'      => 'post',
-          'posts_per_page' => 3,
-          'no_found_rows'  => true, // ページネーション不要な場合、高速化
+      // 取得したいカテゴリーの設定を配列にする
+      $target_categories = array(
+          array('slug' => 'column',      'name' => 'コラム'), // スラッグを column に修正
+          array('slug' => 'blog',        'name' => 'ブログ'),
+          array('slug' => 'information', 'name' => 'お知らせ')
       );
-      $blog_query = new WP_Query($args);
-      if ($blog_query->have_posts()) : while ($blog_query->have_posts()) : $blog_query->the_post();
+
+      foreach ($target_categories as $cat_info) :
+          $args = array(
+              'post_type'      => 'post',
+              'category_name'  => $cat_info['slug'], // スラッグで指定
+              'posts_per_page' => 3,                 // 各3件ずつ
+              'no_found_rows'  => true,
+          );
+          $cat_query = new WP_Query($args);
+
+          if ($cat_query->have_posts()) : 
+              while ($cat_query->have_posts()) : $cat_query->the_post();
       ?>
       <li>
         <a class="archive-column" href="<?php the_permalink(); ?>">
@@ -252,7 +263,7 @@ Template Name: front-page
             <?php else : ?>
               <img src="<?php echo $url; ?>/view/images/top_voi04.webp" alt="">
             <?php endif; ?>
-            <p class="category-box"><?php $cat = get_the_category(); echo $cat[0]->name; ?></p>
+            <p class="category-box"><?php echo $cat_info['name']; ?></p>
             </div>
           </div>
           <div class="blog-text">
@@ -262,11 +273,16 @@ Template Name: front-page
           </div>
         </a>
       </li>
-      <?php endwhile; wp_reset_postdata(); endif; ?>
+      <?php 
+              endwhile; 
+              wp_reset_postdata(); 
+          endif; 
+      endforeach; 
+      ?>
     </ul>
 
     <div class="btn-box">
-      <a href="<?php echo home_url('/category/blog'); ?>" class="btn-readmore">記事一覧を見る</a>
+      <a href="<?php echo home_url('/blog_list'); // 全体の一覧、または適切なURLへ ?>" class="btn-readmore">記事一覧を見る</a>
     </div>
   </div>
 </section>
