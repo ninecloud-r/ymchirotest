@@ -2382,7 +2382,7 @@ footer {
     box-sizing: border-box;
     cursor: pointer;
     -webkit-transition: all 400ms;
-    transition: all 400ms
+    transition: all 400ms;
 }
 
 .gnav-wrapper .btn-gnav span {
@@ -2392,32 +2392,44 @@ footer {
     background: #444;
     border-radius: 10px;
     -webkit-transition: all 400ms;
-    transition: all 400ms
+    transition: all 400ms;
+    left: 0; /* 左端を固定 */
 }
 
-.gnav-wrapper .btn-gnav span:nth-child(1) {
-    top: 0
-}
+/* 通常時の位置 */
+.gnav-wrapper .btn-gnav span:nth-child(1) { top: 0; }
+.gnav-wrapper .btn-gnav span:nth-child(2) { top: 10px; }
+.gnav-wrapper .btn-gnav span:nth-child(3) { top: 20px; }
 
-.gnav-wrapper .btn-gnav span:nth-child(2) {
-    top: 10px
-}
-
-.gnav-wrapper .btn-gnav span:nth-child(3) {
-    top: 20px
-}
-
+/* オープン時（×印に変形） */
 .gnav-wrapper .btn-gnav.open {
+    /* 全体を少し回転させる遊び心のある動き */
     -webkit-transform: rotate(5deg);
-    transform: rotate(5deg)
+    transform: rotate(5deg);
 }
 
 .gnav-wrapper .btn-gnav.open span {
-    background: #fff
-}
-
-.gnav-wrapper .btn-gnav.open span {
+    background: #fff; /* 背景が暗くなる想定で白に変更 */
     width: 24px;
+}
+
+/* 1本目：中央に移動して45度回転 */
+.gnav-wrapper .btn-gnav.open span:nth-child(1) {
+    top: 10px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* 2本目：透明にして消す */
+.gnav-wrapper .btn-gnav.open span:nth-child(2) {
+    opacity: 0;
+}
+
+/* 3本目：中央に移動してマイナス45度回転 */
+.gnav-wrapper .btn-gnav.open span:nth-child(3) {
+    top: 10px;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
 }
 
 .gnav-box {
