@@ -2268,10 +2268,11 @@ footer {
 }
 
 .voice-detail {
-  gap: auto;
+  gap: 0;
+  margin-bottom: 0;
 }
 
-.voice-title {
+.archive-main .entry-content-box-wrapper .voice-title {
   margin: 20px 0;
 }
 
