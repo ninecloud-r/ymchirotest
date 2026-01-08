@@ -159,7 +159,7 @@ wrap-all.top-page{
   width: 100%;
   text-align: center;
   background: #fff;
-  margin-bottom: 120px;
+  margin-bottom: 0;
   line-height: 0;
 }
 
@@ -268,6 +268,9 @@ header .container {
   height: 100px;
   background: url(../images/header_bg.jpg) no-repeat;
   background-size: cover;
+}
+
+.gnav-wrapper {
 }
 
 .gnav-box {
@@ -383,6 +386,10 @@ main {
   padding-bottom: 120px;
   /*--background: #fdfbf6;--*/
   background: url(../images/back.gif) ;
+}
+
+main.top-page {
+  padding-top: 120px;
 }
 
 main.under-page {

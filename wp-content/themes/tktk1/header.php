@@ -128,15 +128,16 @@
 
     
 
-<main>
-<?php if ( is_home() || is_front_page() ) : ?>
 
+<?php if ( is_home() || is_front_page() ) : ?>
+<main class="top-page">
 <?php elseif(is_page()): ?>
         <?php
 	$page = get_post( get_the_ID() );
 	$slug = $page->post_name;
 	$subtitle = ucfirst($slug);
 ?>
+<main>
 <div class="bread-crumb">
 <div class="container">
   <ul>
