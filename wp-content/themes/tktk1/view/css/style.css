@@ -140,6 +140,7 @@ wrap-all.top-page{
 .container.mid{
     max-width: 640px;
     margin: 0 auto;
+    background: #fff;
 }
 
 .container.sm {
