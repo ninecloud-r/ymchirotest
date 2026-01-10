@@ -961,14 +961,11 @@ section {
   font-size: 18px;
 }
 
-.concept-section {
-  margin-bottom: 120px;
-}
-
 .concept-section .description-area {
   color: #D7195E;
   font-weight: bold;
   font-size: 27px;
+  margin-bottom: 0;
 }
 
 .story-section,
