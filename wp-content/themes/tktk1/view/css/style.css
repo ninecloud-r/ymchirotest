@@ -1525,6 +1525,7 @@ content: "";
 
 .archive-main .bread-crumb .container {
   background: none;
+  padding-bottom: 0;
 }
 
 /* 記事タイトル周りの装飾を青から茶色へ */
