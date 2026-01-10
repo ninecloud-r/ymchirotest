@@ -1,7 +1,5 @@
 <?php get_header(); ?>
 
-<div class="archive-main">
-    <div class="container mid">
         <div class="page-title-area">
             <div class="page-title">
                 <h1 class="page-title-box">

@@ -156,4 +156,14 @@
 </div>
 
         <?php else: ?>
+          <main class="archive-main">
+    <div class="container mid">
+<div class="bread-crumb">
+<div class="container">
+  <ul>
+    <li> <a href="<?php echo esc_url( home_url( '/' ) ); ?>">トップページ</a> </li>
+    <li><?php the_title_attribute(); ?></li>
+  </ul>
+</div>
+</div>          
         <?php endif; ?>

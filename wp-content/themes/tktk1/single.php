@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 
-<div class="archive-main">
-    <div class="container mid">
+
         
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); 
             $current_pt = get_post_type();
