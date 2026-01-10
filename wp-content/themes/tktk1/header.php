@@ -29,7 +29,7 @@
 <?php wp_head(); ?>
 </head>
   <body>
-  <div class="wrap-all top-page">
+  <div class="wrap-all">
     <div class="wrapper">
       <header>
   <div class="header-headline">
