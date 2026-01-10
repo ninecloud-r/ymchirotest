@@ -1523,10 +1523,8 @@ content: "";
   padding-bottom: 80px;
 }
 
-.archive-main .container {
-  max-width: 800px;
-  background: #fff;
-  margin: 0 auto;
+.archive-main .bread-crumb .container {
+  background: none;
 }
 
 /* 記事タイトル周りの装飾を青から茶色へ */
