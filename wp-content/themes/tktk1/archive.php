@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="archive-main">
+<main class="archive-main">
     <div class="container mid">
         <div class="page-title-area">
             <div class="page-title">
@@ -97,6 +97,6 @@
             </div>
         </div>
     </div>
-</div>
+</main>
 
 <?php get_footer(); ?>
