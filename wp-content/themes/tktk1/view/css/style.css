@@ -1148,16 +1148,6 @@ section {
     font-size: 16px;
 }
 
-/* --- アーカイブ（記事一覧）全体の調整 --- */
-.archive-main .container {
-    max-width: 1000px; /* 一覧は少し広めが見やすいです */
-    margin: 0 auto;
-    background: #fff;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 80px;
-}
-
 /* 記事カードのレイアウト調整 */
 .blog-contents-wrap {
     display: flex;
