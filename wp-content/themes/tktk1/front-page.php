@@ -63,6 +63,20 @@ Template Name: front-page
 
 <div class="section concept-section">
     <div class="container mid">
+        <div class="description-area">
+            てくてくはこんな施術院です。
+        </div>
+        <div class="section-img">
+            <img src="<?php echo $url; ?>/view/images/7004.jpg" alt="" />
+        </div>
+        <div class="description-area">
+            てくてくはこんな施術院です。
+        </div>
+    </div>
+</div>
+
+<div class="section concept-section">
+    <div class="container mid">
         <div class="section-img">
             <img src="<?php echo $url; ?>/view/images/top_img06.webp" alt="">
         </div>
@@ -124,7 +138,6 @@ Template Name: front-page
         </div>
     </div>
 </div>
-
 <div class="section line-section">
     <div class="container">
         <div class="section-box">
