@@ -138,6 +138,7 @@ wrap-all.top-page{
 }
 
 .container.mid{
+  width: 100%;
     max-width: 800px;
     margin: 0 auto;
     padding: 0 20px 80px;
@@ -1860,10 +1861,6 @@ footer {
     background-color: rgba(2,35,88,0.5);
   }
 
-  .container.mid {
-    width: 100%;
-  }
-
   .page-title-area h2 .en-title {
     font-size: 42px;
   }
@@ -1903,6 +1900,10 @@ footer {
   header .container {
     flex-direction: column;
     text-align: center;
+  }
+
+    .container.mid {
+    padding: 0 20px;
   }
 
   .header-headline h1 {
@@ -2049,6 +2050,10 @@ footer {
     padding-bottom: 40px;
   }
 
+  main.top-page {
+    padding-top: 40px;
+  }
+
   main.under-page {
     padding-top: 40px;
   }
@@ -2109,7 +2114,6 @@ footer {
 
   .main-img-area {
     margin: 0;
-    margin-bottom: 80px;
     height: auto;
 
   }
