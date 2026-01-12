@@ -94,6 +94,28 @@
                 </div>
             </div>
         </div>
+        <div class="banner-contents">
+            <div class="banner-box">
+                <div class="banner">
+                <a href="#"><img src="<?php echo $url; ?>/view/images/7004.jpg" alt="" />
+                    <p class="title-box">タイトルが入ります</p></a></div>
+            </div>
+            <div class="banner-box">
+                <div class="banner">
+                <a href="#"><img src="<?php echo $url; ?>/view/images/7004.jpg" alt="" />
+                    <p class="title-box">タイトルが入ります</p></a></div>
+            </div>
+            <div class="banner-box">
+                <div class="banner">
+                <a href="#"><img src="<?php echo $url; ?>/view/images/7004.jpg" alt="" />
+                    <p class="title-box">タイトルが入ります</p></a></div>
+            </div>
+            <div class="banner-box">
+                <div class="banner">
+                <a href="#"><img src="<?php echo $url; ?>/view/images/7004.jpg" alt="" />
+                    <p class="title-box">タイトルが入ります</p></a></div>
+            </div>
+        </div>
     </div>
 </main>
 
