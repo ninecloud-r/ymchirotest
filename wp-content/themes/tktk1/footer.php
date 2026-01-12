@@ -22,31 +22,43 @@
       <div class="footer-right">
         <ul class="fnav">
           <li>
-            <a href="./">
-              トップページ
-            </a>
-            </li>
-            
-              <li>
-            <a href="./company">
-                  当院について
-                </a>
-                </li>
-                <li>
-            <a href="./concept">
-                    ご利用者様の声
-                  </a>
+            <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                      <span class="jp-title">
+                        トップページ
+                      </span>
+                    </a>
                   </li>
                   <li>
-            <a href="./results">
-                      施術と料金
+            <a href="<?php echo esc_url( home_url( '/aboutus' ) ); ?>">
+                      <span class="jp-title">
+                        当院について
+                      </span>
                     </a>
-                    </li>
-                    <li>
-            <a href="./contact">
+                  </li>
+                  <li>
+            <a href="<?php echo esc_url( home_url( '/voice' ) ); ?>">
+                      <span class="jp-title">
+                        ご利用者様の声
+                      </span>
+                    
+                    </a>
+                  </li>
+                  <li>
+            <a href="<?php echo esc_url( home_url( '/treatment' ) ); ?>">
+                      <span class="jp-title">
+                        施術と料金
+                      </span>
+                      
+                    </a>
+                  </li>
+                  <li>
+            <a href="<?php echo esc_url( home_url( '/accsess' ) ); ?>">
+                      <span class="jp-title">
                         アクセス
-                      </a>
-                      </li>
+                      </span>
+                      
+                    </a>
+                  </li>
           </ul>
         </div>
       </div>

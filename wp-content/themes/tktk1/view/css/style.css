@@ -2034,12 +2034,22 @@ footer {
 
 .page-wrapper h2 {
   line-height: 1.8;
-  font-size: 16px;
+  font-size: 15px;
+  margin-top: 25px;
 }
 
 .page-wrapper h3 {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.6;
+}
+
+.page-wrapper h4 {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.page-wrapper ul li {
+  font-size: 13px;
 }
 
 .page-wrapper .kanja-result {
