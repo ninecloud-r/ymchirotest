@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<?php $url = get_theme_file_uri(); ?>
 
 
         
@@ -140,9 +141,7 @@
             </article>
 
         <?php endwhile; endif; ?>
-
-    </div>
-    <div class="banner-contents">
+<div class="banner-contents">
             <div class="banner-box">
                 <div class="banner">
                 <a href="#">
@@ -172,6 +171,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    
 </div>
 
 <?php get_footer(); ?>
