@@ -2620,6 +2620,16 @@ footer {
   margin-bottom: 15px;
 }
 
+.banner-contents {
+  flex-direction: column;
+}
 
+.banner-contents .banner-box {
+  width: 100%;
+}
+
+.banner-contents .banner-box .title-box {
+  font-size: 14px;
+}
 
 }
