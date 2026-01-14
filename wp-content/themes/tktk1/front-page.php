@@ -292,7 +292,36 @@ Template Name: front-page
     </div>
   </div>
 </section>
-
+<div class="banner-contents">
+            <div class="banner-box">
+                <div class="banner">
+                <a href="#">
+                    <p class="img-box"><img src="<?php echo $url; ?>/view/images/7004.jpg" alt="" /></p>
+                    <p class="title-box">施術ブログ・コラム</p></a>
+                </div>
+            </div>
+            <div class="banner-box">
+                <div class="banner">
+                <a href="#">
+                    <p class="img-box"><img src="<?php echo $url; ?>/view/images/7004.jpg" alt="" /></p>
+                    <p class="title-box">施術方法</p></a>
+                </div>
+            </div>
+            <div class="banner-box">
+                <div class="banner">
+                <a href="#">
+                    <p class="img-box"><img src="<?php echo $url; ?>/view/images/7004.jpg" alt="" /></p>
+                    <p class="title-box">回復された方の声</p></a>
+                </div>
+            </div>
+            <div class="banner-box">
+                <div class="banner">
+                <a href="#">
+                    <p class="img-box"><img src="<?php echo $url; ?>/view/images/7004.jpg" alt="" /></p>
+                    <p class="title-box">症状別の事例</p></a>
+                </div>
+            </div>
+        </div>
 <div class="ggmap">
     <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6496.61419078715!2d139.446396!3d35.496684!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018568b586c2ed9%3A0x465d7bc95eea82d8!2z5aSn5ZKM5Y2X5p6X6ZaT44Kr44Kk44Ot44OX44Op44Kv44OG44Kj44OD44Kv5pW05L2T6ZmiIOOBpuOBj-OBpuOBjw!5e0!3m2!1sja!2sjp!4v1766646206422!5m2!1sja!2sjp" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
