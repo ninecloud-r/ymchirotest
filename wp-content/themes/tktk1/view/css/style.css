@@ -1709,6 +1709,7 @@ footer {
 .pagination {
     text-align: center;
     margin-top: 50px;
+    margin-bottom: 80px;
     width: 100%;
 }
 
@@ -1768,7 +1769,21 @@ footer {
 }
 
 .banner-contents .banner-box {
-  width: 50%;
+  width: 48%;
+  margin: 0 1%;
+  position: relative;
+}
+
+.banner-contents .banner-box .time-box {
+  position: absolute;
+  display: inline-block;
+  padding: 10px;
+  left: 10px;
+  top: 10px;
+  color: #fff;
+  font-weight: bold;
+  background: var(--main-color);
+  border-radius: 5px;
 }
 
 /* レスポンシブ：中画面（タブレット） */
