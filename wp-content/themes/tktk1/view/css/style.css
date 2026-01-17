@@ -1788,9 +1788,8 @@ footer {
 /* --- 追加・修正部分 --- */
 .banner-contents .banner-box .img-box {
   width: 100%;
-  aspect-ratio: 16 / 9; /* 横長なら16:9、正方形なら1:1などお好みで */
+  aspect-ratio: 16 / 8; /* 横長なら16:9、正方形なら1:1などお好みで */
   overflow: hidden;    /* 枠からはみ出た部分を隠す */
-  border-radius: 8px;  /* 角を少し丸めると今風になります */
 }
 
 .banner-contents .banner-box .img-box img {
