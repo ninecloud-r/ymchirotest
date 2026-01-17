@@ -1785,6 +1785,22 @@ footer {
   position: relative;
 }
 
+/* --- 追加・修正部分 --- */
+.banner-contents .banner-box .img-box {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* 横長なら16:9、正方形なら1:1などお好みで */
+  overflow: hidden;    /* 枠からはみ出た部分を隠す */
+  border-radius: 8px;  /* 角を少し丸めると今風になります */
+}
+
+.banner-contents .banner-box .img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* これが重要！枠いっぱいにトリミングして表示します */
+  display: block;
+}
+/* -------------------- */
+
 .banner-contents .banner-box .title-box {
   position: absolute;
   display: inline-block;
@@ -1795,6 +1811,7 @@ footer {
   font-weight: bold;
   background: var(--main-color);
   border-radius: 5px;
+  font-size: 0.9rem; /* バナー内の文字が長い場合は少し小さく調整 */
 }
 
 /* レスポンシブ：中画面（タブレット） */
