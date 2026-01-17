@@ -886,6 +886,13 @@ section {
     object-fit: cover;
 }
 
+.banner-section {
+  background: #fff;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+}
+
 /* カテゴリーバッジ */
 .category-tag {
     position: absolute;
@@ -1368,6 +1375,7 @@ content: "";
   display: flex;
   justify-content: space-between;
   margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .pager-box-wrap .pager-box {
@@ -1769,8 +1777,8 @@ footer {
 }
 
 .banner-contents .banner-box {
-  width: 48%;
-  margin: 0 1%;
+  width: 47%;
+  margin: 0 1.5% 15px;
   position: relative;
 }
 
@@ -2373,6 +2381,7 @@ footer {
 
 .blog-section {
   padding-bottom: 40px;
+  margin-bottom: 0;
 }
 
 .blog-section h4 {

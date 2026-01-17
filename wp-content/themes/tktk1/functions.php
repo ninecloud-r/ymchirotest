@@ -114,6 +114,34 @@ add_filter( 'wp_get_attachment_image_attributes', function( $attr ) {
     return $attr;
 }, 99 );
 
+add_filter( 'get_the_archive_title', function ( $title ) {
+    if ( is_category() ) {
+        // URLパラメータやクエリから、表示されているカテゴリーの情報を取得
+        $cat_ids = get_queried_object_id(); // 通常の単一カテゴリー用
+        
+        // 複数カテゴリー（カンマ区切り）の場合を判定
+        $cat_param = get_query_var('category_name');
+        
+        if ( strpos($cat_param, ',') !== false || strpos($cat_param, '+') !== false ) {
+            // スラッグを分割して名前を取得
+            $slugs = preg_split('/[,+]/', $cat_param);
+            $names = [];
+            foreach ( $slugs as $slug ) {
+                $cat = get_category_by_slug( $slug );
+                if ( $cat ) {
+                    $names[] = $cat->name;
+                }
+            }
+            // 「コラム ＆ ブログ」のような形式でタイトルを上書き
+            $title = implode( ' と ', $names );
+        } else {
+            // 通常のカテゴリー表示（「カテゴリー: 」という接頭辞を消す設定）
+            $title = single_cat_title( '', false );
+        }
+    }
+    return $title;
+});
+
 ?>
 
 

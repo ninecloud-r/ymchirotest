@@ -294,7 +294,7 @@ Template Name: front-page
 </section>
 
 <section class="section banner-section">
-    <div class="container">
+    <div class="container mid">
         <div class="banner-contents">
             <div class="banner-box">
                 <div class="banner">
