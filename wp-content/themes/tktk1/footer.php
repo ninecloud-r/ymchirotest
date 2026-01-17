@@ -70,6 +70,13 @@
   </footer>
 </div>
 </div>
+<script>
+document.addEventListener( 'wpcf7mailsent', function( event ) {
+    // 現在のドメイン（https://...）を取得し、末尾に /thanks/ を結合
+    var thanksPage = window.location.protocol + '//' + window.location.host + '/thanks/';
+    location.href = thanksPage;
+}, false );
+</script>
 <?php wp_footer(); ?>
 </body>
 </html>
