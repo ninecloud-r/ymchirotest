@@ -33,37 +33,23 @@
 
         -----
 
-       <div class="banner-contents">
+       <div class="banner-contents" style="background: #eee; padding: 20px;">
     <?php 
-    // バナーを管理しているページのIDを固定
     $banner_page_id = 6980; 
+    // とりあえず1番目のデータだけ中身を覗いてみる
+    $test_img   = get_field( "banner_1_img", $banner_page_id );
+    $test_title = get_field( "banner_1_title", $banner_page_id );
 
-    for ( $i = 1; $i <= 4; $i++ ) : 
-        // 第2引数に $banner_page_id を入れて、どのページからも 6980 のデータを呼ぶようにする
-        $img_data = get_field( "banner_{$i}_img", $banner_page_id );
-        $title    = get_field( "banner_{$i}_title", $banner_page_id );
-        $link     = get_field( "banner_{$i}_url", $banner_page_id );
-        
-        // 画像URLを取得（配列で返ってきている場合にも対応）
-        $img_url = "";
-        if ( is_array($img_data) ) {
-            $img_url = $img_data['url']; // 配列（デフォルト）の場合
-        } elseif ( is_string($img_data) ) {
-            $img_url = $img_data; // URL（設定変更済み）の場合
-        }
-
-        if ( $img_url && $title && $link ) :
+    echo "";
+    echo "<p>ページID: " . $banner_page_id . "</p>";
+    echo "<p>タイトル取得結果: " . ($test_title ? $test_title : "空っぽです") . "</p>";
+    echo "<p>画像データ型: " . gettype($test_img) . "</p>";
+    
+    if ($test_img) {
+        echo "<pre>";
+        print_r($test_img);
+        echo "</pre>";
+    }
     ?>
-    <div class="banner-box">
-        <div class="banner">
-            <a href="<?php echo esc_url($link); ?>">
-                <p class="img-box">
-                    <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($title); ?>" />
-                </p>
-                <p class="title-box"><?php echo esc_html($title); ?></p>
-            </a>
-        </div>
-    </div>
-    <?php endif; endfor; ?>
 </div>
 </div>
