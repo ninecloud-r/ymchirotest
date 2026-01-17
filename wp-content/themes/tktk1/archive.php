@@ -2,7 +2,7 @@
 <?php $url = get_theme_file_uri(); ?>
         <div class="page-title-area">
             <div class="page-title">
-                <<h1 class="page-title-box">
+                <h1 class="page-title-box">
     <?php
     if ( is_post_type_archive('voice') || is_tax('parts') ) {
         echo 'ご利用者様の声';

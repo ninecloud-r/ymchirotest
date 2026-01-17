@@ -1,4 +1,4 @@
-
+<?php $url = get_theme_file_uri(); ?>
         <div class="banner-contents">
             <div class="banner-box">
                 <div class="banner">
