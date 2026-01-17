@@ -33,23 +33,42 @@
 
         -----
 
-       <div class="banner-contents" style="background: #eee; padding: 20px;">
+       <div class="banner-contents">
     <?php 
     $banner_page_id = 6980; 
-    // とりあえず1番目のデータだけ中身を覗いてみる
-    $test_img   = get_field( "banner_1_img", $banner_page_id );
-    $test_title = get_field( "banner_1_title", $banner_page_id );
 
-    echo "";
-    echo "<p>ページID: " . $banner_page_id . "</p>";
-    echo "<p>タイトル取得結果: " . ($test_title ? $test_title : "空っぽです") . "</p>";
-    echo "<p>画像データ型: " . gettype($test_img) . "</p>";
-    
-    if ($test_img) {
-        echo "<pre>";
-        print_r($test_img);
-        echo "</pre>";
-    }
+    for ( $i = 1; $i <= 4; $i++ ) : 
+        // どんな形式で返ってきても画像URLに変換する処理
+        $img_raw  = get_field( "banner_{$i}_img", $banner_page_id );
+        $title    = get_field( "banner_{$i}_title", $banner_page_id );
+        $link     = get_field( "banner_{$i}_url", $banner_page_id );
+
+        $img_url = "";
+        if ( $img_raw ) {
+            if ( is_numeric($img_raw) ) {
+                // IDで返ってきた場合
+                $img_url = wp_get_attachment_url($img_raw);
+            } elseif ( is_array($img_raw) ) {
+                // 配列で返ってきた場合
+                $img_url = $img_raw['url'];
+            } else {
+                // URL文字列で返ってきた場合
+                $img_url = $img_raw;
+            }
+        }
+
+        if ( $img_url && $title && $link ) :
     ?>
+    <div class="banner-box">
+        <div class="banner">
+            <a href="<?php echo esc_url($link); ?>">
+                <p class="img-box">
+                    <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($title); ?>" />
+                </p>
+                <p class="title-box"><?php echo esc_html($title); ?></p>
+            </a>
+        </div>
+    </div>
+    <?php endif; endfor; ?>
 </div>
 </div>
