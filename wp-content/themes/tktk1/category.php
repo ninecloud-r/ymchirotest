@@ -3,18 +3,32 @@
         <div class="page-title-area">
             <div class="page-title">
                 <h1 class="page-title-box">
-                    <?php
-                    if ( is_post_type_archive('voice') || is_tax('parts') ) {
-                        echo 'ご利用者様の声';
-                    } elseif ( is_category() ) {
-                        single_cat_title();
-                    } elseif ( is_tag() ) {
-                        single_tag_title();
-                    } elseif ( is_archive() ) {
-                        echo 'お知らせとブログ';
-                    }
-                    ?>
-                </h1>
+    <?php
+    if ( is_post_type_archive('voice') || is_tax('parts') ) {
+        echo 'ご利用者様の声';
+    } elseif ( is_category() ) {
+        // 表示中のカテゴリー情報を取得
+        $cat_param = get_query_var('category_name'); // URLのスラッグ部分を取得
+
+        // カンマ(,)が含まれているかチェック
+        if ( strpos($cat_param, ',') !== false ) {
+            $slugs = explode(',', $cat_param);
+            $names = [];
+            foreach ( $slugs as $slug ) {
+                $cat = get_category_by_slug($slug);
+                if ( $cat ) { $names[] = $cat->name; }
+            }
+            echo implode(' ＆ ', $names); // 「コラム ＆ ブログ」と表示
+        } else {
+            single_cat_title(); // 通常の1カテゴリ表示
+        }
+    } elseif ( is_tag() ) {
+        single_tag_title();
+    } elseif ( is_archive() ) {
+        echo 'お知らせとブログ';
+    }
+    ?>
+</h1>
             </div>
         </div>
 

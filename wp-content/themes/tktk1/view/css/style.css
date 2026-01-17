@@ -531,6 +531,8 @@ section {
 .btn-box .btn-readmore {
   border: 1px solid #999;
   background: #fff;
+  padding: 15px;
+  border-radius: 2px;
 }
 
 .btn-box .btn-forec {
@@ -800,7 +802,7 @@ section {
 /* --- ブログ・お知らせセクション --- */
 .blog-section {
     background: #fff;
-    padding-bottom: 120px;
+    padding-bottom: 80px;
     margin-bottom: 0;
 }
 
