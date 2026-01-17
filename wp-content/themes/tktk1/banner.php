@@ -70,5 +70,13 @@
         </div>
     </div>
     <?php endif; endfor; ?>
+    <?php if ( is_user_logged_in() ) : ?>
+        <div class="banner-edit-guide" style="width: 100%; clear: both; margin-top: 20px; padding: 15px; background: #fff9e6; border: 1px dashed #ffcc00; color: #666; font-size: 0.85rem; text-align: center;">
+            <p style="margin: 0;">
+                <span style="font-weight: bold; color: #d4a017;">【管理者向けガイド】</span><br>
+                このバナーエリアは、<a href="<?php echo admin_url('post.php?post=6980&action=edit'); ?>" style="color: #0073aa; text-decoration: underline;">固定ページ「バナー管理」</a>から編集が可能です。
+            </p>
+        </div>
+    <?php endif; ?>
 </div>
 </div>
