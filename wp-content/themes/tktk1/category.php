@@ -23,7 +23,7 @@
                         $names[] = $cat->name;
                     }
                 }
-                echo implode(' ＆ ', $names);
+                echo implode(' と ', $names);
             } else {
                 single_cat_title();
             }
