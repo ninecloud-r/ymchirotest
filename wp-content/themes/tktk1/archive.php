@@ -2,25 +2,33 @@
 <?php $url = get_theme_file_uri(); ?>
         <div class="page-title-area">
             <div class="page-title">
-                <h1 class="page-title-box">
+                <<h1 class="page-title-box">
     <?php
     if ( is_post_type_archive('voice') || is_tax('parts') ) {
         echo 'ご利用者様の声';
     } elseif ( is_category() ) {
-        // 表示中のカテゴリー情報を取得
-        $cat_param = get_query_var('category_name'); // URLのスラッグ部分を取得
-
-        // カンマ(,)が含まれているかチェック
-        if ( strpos($cat_param, ',') !== false ) {
-            $slugs = explode(',', $cat_param);
-            $names = [];
-            foreach ( $slugs as $slug ) {
-                $cat = get_category_by_slug($slug);
-                if ( $cat ) { $names[] = $cat->name; }
+        // 現在のURLパスを取得 (例: /category/colum,blog/)
+        $current_url = $_SERVER['REQUEST_URI'];
+        
+        // category/ の後ろの文字列を抽出
+        if ( preg_match('/category\/(.+?)\//', $current_url, $matches) ) {
+            $slug_string = $matches[1]; // "colum,blog" が入る
+            
+            if ( strpos($slug_string, ',') !== false ) {
+                $slugs = explode(',', $slug_string);
+                $names = [];
+                foreach ( $slugs as $slug ) {
+                    $cat = get_category_by_slug($slug);
+                    if ( $cat ) {
+                        $names[] = $cat->name;
+                    }
+                }
+                echo implode(' ＆ ', $names);
+            } else {
+                single_cat_title();
             }
-            echo implode(' ＆ ', $names); // 「コラム ＆ ブログ」と表示
         } else {
-            single_cat_title(); // 通常の1カテゴリ表示
+            single_cat_title();
         }
     } elseif ( is_tag() ) {
         single_tag_title();
