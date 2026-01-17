@@ -801,6 +801,7 @@ section {
 .blog-section {
     background: #fff;
     padding-bottom: 120px;
+    margin-bottom: 0;
 }
 
 .blog-section .container {
