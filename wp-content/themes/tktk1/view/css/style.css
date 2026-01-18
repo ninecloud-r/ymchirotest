@@ -1813,6 +1813,40 @@ footer {
   font-size: 0.9rem; /* バナー内の文字が長い場合は少し小さく調整 */
 }
 
+/* MW WP Form の見た目を整える */
+.mw_wp_form {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.mw_wp_form input[type="text"],
+.mw_wp_form input[type="email"],
+.mw_wp_form input[type="tel"],
+.mw_wp_form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+.form-btns {
+    text-align: center;
+    margin-top: 20px;
+}
+.mw_wp_form input[type="submit"] {
+    background: #e67e22; /* 院のイメージカラーに合わせて */
+    color: #fff;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s;
+}
+.mw_wp_form input[type="submit"]:hover {
+    background: #d35400;
+}
+
 /* レスポンシブ：中画面（タブレット） */
 @media screen and (max-width: 1024px) {
     .blog-item {
