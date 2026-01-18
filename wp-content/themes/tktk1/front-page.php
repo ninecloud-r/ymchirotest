@@ -6,10 +6,43 @@ Template Name: front-page
 <?php get_header(); ?>
 <?php $url = get_theme_file_uri(); ?>
 
+<?php 
+// 1. トップページの固定ページIDを指定
+$top_page_id = 7007; 
+
+// 2. PC用メイン画像の取得
+$img_pc_raw = get_field('top_main_img_pc1', $top_page_id);
+$img_pc_url = "";
+if ($img_pc_raw) {
+    if (is_array($img_pc_raw)) { $img_pc_url = $img_pc_raw['url']; }
+    elseif (is_numeric($img_pc_raw)) { $img_pc_url = wp_get_attachment_url($img_pc_raw); }
+    else { $img_pc_url = $img_pc_raw; }
+}
+
+// 3. スマホ用メイン画像の取得
+$img_sp_raw = get_field('top_main_img_sp1', $top_page_id);
+$img_sp_url = "";
+if ($img_sp_raw) {
+    if (is_array($img_sp_raw)) { $img_sp_url = $img_sp_raw['url']; }
+    elseif (is_numeric($img_sp_raw)) { $img_sp_url = wp_get_attachment_url($img_sp_raw); }
+    else { $img_sp_url = $img_sp_raw; }
+}
+
+// スマホ用が空ならPC用を代用
+if (!$img_sp_url) { $img_sp_url = $img_pc_url; }
+?>
+
 <div class="section concept-section">
     <div class="container mid">
         <div class="section-img">
-            <img src="<?php echo $url; ?>/view/images/top_img01.webp" alt="しっかりした施術で整えます">
+            <?php if ($img_pc_url) : ?>
+                <picture>
+                    <source media="(max-width: 767px)" srcset="<?php echo esc_url($img_sp_url); ?>">
+                    <img src="<?php echo esc_url($img_pc_url); ?>" alt="しっかりした施術で整えます">
+                </picture>
+            <?php else : ?>
+                <img src="<?php echo $url; ?>/view/images/top_img01.webp" alt="しっかりした施術で整えます">
+            <?php endif; ?>
         </div>
         <div class="description-area">
             しっかりした施術で<br>
