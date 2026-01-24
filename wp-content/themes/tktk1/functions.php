@@ -142,6 +142,32 @@ add_filter( 'get_the_archive_title', function ( $title ) {
     return $title;
 });
 
+// エディタに「スタイル」ドロップダウンを追加
+function add_style_select_buttons( $buttons ) {
+    array_unshift( $buttons, 'styleselect' );
+    return $buttons;
+}
+add_filter( 'mce_buttons_2', 'add_style_select_buttons' );
+
+// 「スタイル」の中身を設定
+function my_mce_before_init_insert_formats( $init_array ) {
+    $style_formats = array(
+        array(
+            'title' => '独自タイトル1',  // メニューに表示される名前
+            'block' => 'p',             // 出力するタグ
+            'classes' => 'title1',      // 付与するクラス名
+        ),
+        array(
+            'title' => '独自タイトル2',
+            'block' => 'p',
+            'classes' => 'title2',
+        ),
+    );
+    $init_array['style_formats'] = json_encode( $style_formats );
+    return $init_array;
+}
+add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' );
+
 ?>
 
 
