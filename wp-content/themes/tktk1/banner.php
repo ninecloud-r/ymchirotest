@@ -1,4 +1,12 @@
-<?php $url = get_theme_file_uri(); ?>
+<?php 
+// お問い合わせ(3835)とサンクスページ(7000)ではバナーを表示しない
+if ( is_page( array( 3835, 7000 ) ) ) {
+    return; 
+}
+
+$url = get_theme_file_uri(); 
+?>
+
         <div class="banner-contents">
             <div class="banner-box">
                 <div class="banner">
