@@ -1,185 +1,145 @@
 @charset "utf-8";
 
 /* ==========================================================================
-   Variables (テーマカラーの一括管理)
+   1. Variables (カラー管理)
    ========================================================================== */
 :root {
-  --main-color: #66270a;      /* 先生こだわりの茶色 */
-  --main-dark: #3d1d08;       /* さらに深い茶色 */
-  --accent-gold: #947E33;     /* 落ち着いたゴールド */
-  --accent-wgold: #9b8d77;    /* さらに落ち着いたゴールド */
-  --bg-beige: #fdfbf6;        /* 優しい背景色 */
-  --text-dark: #462d14;       /* 読みやすい茶系の文字色 */
-  --border-p: #4f3b14;        /* しっとりしたブラウン */
-  --border-gray: #ddd;        /* うっすらグレー */
-  --bg-creep: #f9f6f2;        /* 背景色2 */
-  --title-border: #BE9362;    /* タイトル用ボーダー */
-  --menseki: #944;            /* 免責事項カラー */
+  --main-color: #66270a;
+  --main-dark: #3d1d08;
+  --accent-gold: #947E33;
+  --accent-wgold: #9b8d77;
+  --bg-beige: #fdfbf6;
+  --text-dark: #462d14;
 }
 
 /* ==========================================================================
-   Reset & Base
+   2. Reset & Basic
    ========================================================================== */
-html, body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, div {
-  margin: 0;
-  padding: 0;
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
 }
 * { box-sizing: border-box; }
 
 body {
-  -webkit-text-size-adjust: 100%;
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-  color: #444;
-  font-size: 14px;
-  background: url(../images/back.gif);
+    -webkit-text-size-adjust: 100%;
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    color: #444;
+    font-size: 14px;
+    background: url(../images/back.gif);
+    line-height: 1.6;
 }
 
 li { list-style: none; }
-a { text-decoration: none; color: var(--accent-wgold); transition: 0.3s; }
-a:hover { opacity: 0.8; }
+a { text-decoration: none; color: inherit; transition: 0.3s; }
 img { max-width: 100%; height: auto; }
 
-.container { max-width: 1200px; width: 100%; margin: 0 auto; }
-.container.mid { width: 100%; max-width: 800px; margin: 0 auto; padding: 0 20px 80px; background: #fff; }
-.top-page .container.mid { background: none; }
-
 /* ==========================================================================
-   Header & Navigation
+   3. Layout Container
    ========================================================================== */
-header { background: #fff; padding-bottom: 15px; }
-
-.header-headline { background: var(--bg-beige); border-bottom: 1px solid #eee; padding: 5px 0; }
-.header-headline h1 { font-size: 11px; color: #666; font-weight: normal; padding-left: 10px; }
-
-.header-main-wrap { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
-.header-left .logo img { max-width: 280px; }
-.header-info { display: flex; align-items: center; gap: 20px; }
-
-.header-right .phone .emp { font-size: 22px; font-weight: bold; color: #d35400; }
-.header-btn a { background: var(--accent-gold); color: #fff; padding: 12px 25px; border-radius: 50px; font-weight: bold; }
-
-/* Global Nav */
-.gnav-box { background: var(--main-color); border-top: 1px solid #fff; }
-.gnav { display: flex; justify-content: space-between; max-width: 1200px; margin: 0 auto; }
-.gnav li { width: 20%; padding: 15px 0; position: relative; text-align: center; }
-.gnav li::after { content: ""; position: absolute; top: 50%; right: 0; transform: translateY(-50%); width: 1px; height: 20px; background: #fff; opacity: 0.5; }
-.gnav li:last-child::after { display: none; }
-.gnav li a { color: #fff; display: block; }
-.gnav li a:hover { color: var(--accent-gold); }
-
-/* ==========================================================================
-   Common Sections (Top Page)
-   ========================================================================== */
-.section-title { padding-top: 80px; padding-bottom: 40px; text-align: center; }
-.section-title h2 { font-size: 32px; letter-spacing: 8px; position: relative; margin-bottom: 20px; }
-.section-title h2::after { content: ""; display: block; width: 60px; height: 4px; background: var(--main-color); margin: 15px auto 0; }
-
-/* 3Column Banners (施術ブログ・声など) */
-.top-col-section .col-box-wrap { display: flex; gap: 20px; }
-.top-col-section .col-box { 
-    flex: 1; padding: 25px; background: #fff; border-radius: 10px; border: 1px solid #eee;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s;
-}
-.top-col-section .col-box:hover { transform: translateY(-5px); }
-.top-col-section .col-box .img-box img { border-radius: 8px; transition: 0.5s; }
-.top-col-section .col-box .img-box a:hover img { transform: scale(1.05); opacity: 0.9; }
-
-/* Feature (特徴) */
-.feature-section { background: rgba(79, 59, 20, 0.7); padding: 80px 0; }
-.feature-section .col-box-wrap { display: flex; flex-wrap: wrap; gap: 2%; }
-.feature-section .col-box { flex: 0 0 31.33%; background: #fff; padding: 30px; border-radius: 8px; margin-bottom: 30px; text-align: center; }
-.feature-section .benefit-box-icon { font-size: 40px; color: var(--accent-gold); margin-bottom: 15px; }
-.feature-section .col-title { color: var(--main-color); font-size: 18px; font-weight: bold; margin-bottom: 15px; }
-
-/* ==========================================================================
-   Page Content (Under Pages)
-   ========================================================================== */
-.page-wrapper { max-width: 800px; width: 100%; background: #fff; padding: 40px 30px 80px; margin: 0 auto; line-height: 2; }
-.page-wrapper h2, .archive-main h2 {
-    padding: 12px 15px; border-left: solid 5px var(--main-color); 
-    background-color: #f9f4f0; margin: 45px 0 25px; color: var(--text-dark);
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
-/* Blog List (Archive) */
-.blog-contents-wrap { display: flex; flex-wrap: wrap; gap: 20px; }
-.blog-item { 
-    width: calc((100% - 40px) / 3); background: #fff; border-radius: 12px; 
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08); overflow: hidden; transition: 0.3s;
+.container.mid {
+    max-width: 800px;
+    background: #fff;
+    padding: 40px 20px;
 }
-.blog-item:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(102, 39, 10, 0.15); }
-.blog-img { width: 100%; aspect-ratio: 16 / 9; overflow: hidden; }
-.blog-img img { width: 100%; height: 100%; object-fit: cover; }
-.blog-text { padding: 15px; }
-.blog-text .post-title { font-size: 15px; font-weight: bold; height: 3.2em; overflow: hidden; margin-bottom: 10px; color: #333; }
 
 /* ==========================================================================
-   Mail Form & Banners
+   4. Header Area
    ========================================================================== */
-/* お問い合わせ・サンクスページでの離脱防止 */
-.page-id-3835 .banner-contents, 
-.page-id-7000 .banner-contents {
+header {
+    background: #fff;
+    width: 100%;
+}
+
+.header-headline {
+    background: var(--bg-beige);
+    border-bottom: 1px solid #eee;
+    padding: 8px 0;
+}
+
+.header-headline h1 {
+    font-size: 11px;
+    color: #666;
+    font-weight: normal;
+}
+
+.header-main-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.header-left .logo img {
+    max-width: 320px;
+}
+
+.header-info {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.header-right .phone .emp {
+    font-size: 24px;
+    font-weight: bold;
+    color: #d35400;
+}
+
+/* Global Navigation */
+.gnav-box {
+    background: var(--main-color);
+    width: 100%;
+}
+
+.gnav {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gnav li {
+    flex: 1;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.2);
+}
+
+.gnav li:last-child {
+    border-right: none;
+}
+
+.gnav li a {
+    display: block;
+    padding: 18px 0;
+    color: #fff;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.gnav li a:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+/* ==========================================================================
+   5. Banner Control (離脱防止)
+   ========================================================================== */
+/* お問い合わせ(3835)・サンキュー(7000)ではバナーエリアを非表示 */
+.page-id-3835 .banner-contents,
+.page-id-3835 .banner-edit-guide,
+.page-id-7000 .banner-contents,
+.page-id-7000 .banner-edit-guide {
     display: none !important;
 }
-
-.banner-contents { display: flex; flex-wrap: wrap; gap: 15px; padding: 20px 0; }
-.banner-contents .banner-box { width: 48%; position: relative; }
-.banner-contents .banner-box .img-box { aspect-ratio: 16 / 8; overflow: hidden; border-radius: 5px; }
-.banner-contents .banner-box .img-box img { width: 100%; height: 100%; object-fit: cover; }
-.banner-contents .banner-box .title-box { 
-    position: absolute; top: 10px; left: 10px; background: var(--main-color); 
-    color: #fff; padding: 8px 12px; font-weight: bold; border-radius: 4px; font-size: 0.9rem;
-}
-
-/* ==========================================================================
-   Footer
-   ========================================================================== */
-footer { border-top: 4px solid var(--main-color); background: #fff; padding: 50px 0 20px; }
-.footer-contents-wrap { display: flex; gap: 40px; }
-.footer-left { flex: 1; }
-.footer-right { flex: 2; }
-.copyright-area { background: #222; color: #fff; text-align: center; padding: 15px; font-size: 12px; }
-
-/* ==========================================================================
-   Responsive (統合版)
-   ========================================================================== */
-@media screen and (max-width: 1024px) {
-    .blog-item { width: calc((100% - 20px) / 2); }
-}
-
-@media screen and (max-width: 768px) {
-    .pc-only { display: none !important; }
-    .sp-only { display: block !important; }
-    
-    /* Header */
-    .header-info, .header-mid { display: none; }
-    .header-left { text-align: center; margin: 15px 0; }
-    .header-left .logo img { max-width: 200px; }
-
-    /* Nav */
-    .gnav-box { display: none; } /* スマホ用メニューは別途実装想定 */
-
-    /* Sections */
-    .top-col-section .col-box-wrap { flex-direction: column; }
-    .feature-section .col-box { flex: 0 0 100%; }
-    .blog-item { width: 100%; }
-    
-    .banner-contents .banner-box { width: 100%; }
-    .page-wrapper { padding: 30px 15px; }
-
-    /* Footer */
-    .footer-contents-wrap { flex-direction: column; text-align: center; }
-}
-
-/* ==========================================================================
-   Utility & Legacy
-   ========================================================================== */
-.main-color-00 { color: var(--main-color); }
-.error { color: #e74c3c; font-weight: bold; }
-.pagination { text-align: center; margin: 40px 0; }
-.pagination .nav-links { display: flex; justify-content: center; gap: 10px; }
-.pagination .nav-links .page-numbers { 
-    width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; 
-    border: 1px solid var(--border-gray); border-radius: 50%; color: var(--main-color);
-}
-.pagination .nav-links .current { background: var(--main-color); color: #fff; border-color: var(--main-color); }
-
