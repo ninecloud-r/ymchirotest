@@ -179,14 +179,31 @@ function htmlHeader() { ?>
     <title>お問い合わせ確認</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <style>
-        /* 簡易的なスタイル */
-        .form-wrapper { padding: 20px; max-width: 600px; margin: auto; }
-        .table-wrapper { margin-bottom: 20px; }
+        body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; color: #333; line-height: 1.6; background: #fff; margin: 0; padding: 0; }
+        .form-wrapper { padding: 40px 20px; max-width: 700px; margin: auto; }
+        h1 { text-align: center; font-size: 24px; color: #e67e22; margin-bottom: 30px; }
+        .btn-wrapper-message { text-align: center; margin-bottom: 20px; font-weight: bold; }
+        .table-wrapper { margin-bottom: 30px; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; }
         .form-tbl { width: 100%; border-collapse: collapse; }
-        .form-tbl td { border: 1px solid #ccc; padding: 10px; }
-        .td02 { background: #eee; width: 30%; }
-        .submit-btn-wrapper { text-align: center; gap: 10px; display: flex; justify-content: center; }
-        .error { color: red; font-weight: bold; margin-bottom: 10px; }
+        .form-tbl td { border-bottom: 1px solid #ddd; padding: 15px; }
+        .td02 { background: #f2f2f2; width: 30%; font-weight: bold; }
+        .td01 { background: #fff; }
+        
+        /* スマホ用：表を縦並びにする */
+        @media screen and (max-width: 600px) {
+            .form-tbl td { display: block; width: 100%; box-sizing: border-box; }
+            .td02 { border-bottom: none; padding-bottom: 5px; background: #f2f2f2; }
+            .td01 { padding-top: 5px; }
+        }
+
+        .submit-btn-wrapper { text-align: center; gap: 15px; display: flex; flex-direction: column; align-items: center; }
+        input[type="submit"], input[type="button"] { 
+            width: 100%; max-width: 300px; padding: 15px; border-radius: 30px; border: none; font-size: 16px; cursor: pointer; transition: 0.3s; 
+        }
+        input[type="submit"] { background: #e67e22; color: #fff; font-weight: bold; }
+        input[type="submit"]:hover { background: #d35400; }
+        input[type="button"] { background: #bdc3c7; color: #fff; }
+        .error { color: #e74c3c; font-weight: bold; text-align: center; margin-bottom: 20px; }
     </style>
 </head>
 <body>
