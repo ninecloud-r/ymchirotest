@@ -61,18 +61,8 @@ Template Name: front-page
     </div>
 </div>
 
-<div class="section concept-section">
+<div class="section top-lp-section">
     <div class="container mid">
-        <div class="description-area">
-            てくてくはこんな施術院です。
-        </div>
-        <div class="section-img">
-            <img src="<?php echo $url; ?>/view/images/7004.jpg" alt="" />
-        </div>
-        <div class="description-area">
-            てくてくはこんな施術院です。
-        </div>
-
         <div class="fixed-page-content">
             <?php
             $page_id = 7023; // 固定ページのIDを指定

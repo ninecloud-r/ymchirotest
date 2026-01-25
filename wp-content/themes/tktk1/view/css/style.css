@@ -6,6 +6,7 @@
 :root {
   --main-color: #66270a;      /* 先生こだわりの茶色 */
   --main-dark: #3d1d08;       /* さらに深い茶色 */
+  --main-pink: #D7195E;
   --accent-gold: #947E33;     /* 落ち着いたゴールド */
   --accent-wgold: #9b8d77;     /* さらに落ち着いたゴールド */
   --bg-beige: #fdfbf6;        /* 優しい背景色 */
@@ -1846,6 +1847,42 @@ footer {
 .mw_wp_form input[type="submit"]:hover {
     background: #d35400;
 }
+
+.top-lp-section {
+  font-size: 16px;
+}
+
+.top-lp-section h1,h2,h3,h4,h5,h6 {
+  text-align: center;
+}
+
+.top-lp-section h1 {
+  font-size: 56px;
+  color: var(--main-dark);
+}
+.top-lp-section h2 {
+  font-size: 42px;
+  color: var(--main-pink);
+}
+
+.top-lp-section h3 {
+  font-size: 32px;
+  color: var(--main-color);
+}
+
+.top-lp-section h4 {
+  font-size: 24px;
+}
+
+.top-lp-section h5 {
+  font-size: 24px;
+}
+
+.top-lp-section p {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
 
 /* レスポンシブ：中画面（タブレット） */
 @media screen and (max-width: 1024px) {
