@@ -2745,34 +2745,25 @@ footer {
 }
 
 .top-lp-section h1 {
-  font-size: 24px;
-  color: #fff;
-  font-weight: bold;
-  padding: 15px 10%;
-  background: var(--main-pink);
-  margin-bottom: 40px;
-  border-radius: 100px;
+  font-size: 18px;
+  padding: 10px 10%;
 }
 .top-lp-section h2 {
-  font-size: 18px;
-  color: var(--main-pink);
+  font-size: 16px;
 }
 
 .top-lp-section h3 {
-  font-size: 16px;
-  color: var(--main-color);
+  font-size: 14px;
 }
 
 .top-lp-section h4 {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .top-lp-section h5 {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .top-lp-section p {
-  font-size: 14px;
-  margin-bottom: 15px;
 }
 }
