@@ -1,4 +1,18 @@
 <?php 
+// --- スパム対策ここから ---
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // 1. ハニーポットチェック
+    if (!empty($_POST['trap_field'])) {
+        die("スパムの疑いがあるため送信をブロックしました。");
+    }
+
+    // 2. 日本語（ひらがな）チェック：お問い合わせ内容に「ひらがな」が1文字もない場合は海外ボット
+    $comment = isset($_POST['お問い合わせ内容']) ? $_POST['お問い合わせ内容'] : '';
+    if (!empty($comment) && !preg_match('/[ぁ-ん]/u', $comment)) {
+        die("エラー：お問い合わせ内容は日本語（ひらがな）で入力してください。");
+    }
+}
+
 header("Content-Type:text/html;charset=UTF-8"); 
 // CSSが必要な場合はここで読み込み（パスに注意してください）
 // @include('css/css.php'); 
