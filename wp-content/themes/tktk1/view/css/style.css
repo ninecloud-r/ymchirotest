@@ -1892,11 +1892,13 @@ footer {
 .form-item { margin-bottom: 20px; }
 .form-item label { display: block; font-weight: bold; margin-bottom: 8px; }
 .required { color: #e74c3c; font-size: 0.8em; margin-left: 5px; }
-.form-item input, .form-item textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 16px; }<br />
+.form-item input, .form-item textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 16px; }
 .form-submit { text-align: center; margin-top: 30px; }
-.form-submit input { background: #e67e22; color: #fff; border: none; padding: 15px 40px; border-radius: 30px; font-size: 18px; cursor: pointer; transition: 0.3s; width: 100%; max-width: 300px; }<br />
+.form-submit input { background: #e67e22; color: #fff; border: none; padding: 15px 40px; border-radius: 30px; font-size: 18px; cursor: pointer; transition: 0.3s; width: 100%; max-width: 300px; }
 .form-submit input:hover { background: #d35400; }
-
+.form-submit-box {
+  text-align: center;
+}
 /* レスポンシブ：中画面（タブレット） */
 @media screen and (max-width: 1024px) {
     .blog-item {
