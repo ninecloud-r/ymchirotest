@@ -1863,7 +1863,7 @@ footer {
   padding: 15px 10%;
   background: var(--main-pink);
   margin-bottom: 40px;
-  border-radius: 10%;
+  border-radius: 100px;
 }
 .top-lp-section h2 {
   font-size: 32px;
