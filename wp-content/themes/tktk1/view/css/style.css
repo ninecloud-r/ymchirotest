@@ -1857,25 +1857,29 @@ footer {
 }
 
 .top-lp-section h1 {
-  font-size: 56px;
-  color: var(--main-dark);
+  font-size: 42px;
+  color: #fff;
+  font-weight: bold;
+  padding: 15px 10%;
+  background: var(--main-pink);
+  margin-bottom: 40px;
 }
 .top-lp-section h2 {
-  font-size: 42px;
+  font-size: 32px;
   color: var(--main-pink);
 }
 
 .top-lp-section h3 {
-  font-size: 32px;
+  font-size: 24px;
   color: var(--main-color);
 }
 
 .top-lp-section h4 {
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .top-lp-section h5 {
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .top-lp-section p {
