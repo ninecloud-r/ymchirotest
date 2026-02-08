@@ -87,6 +87,7 @@ wrap-all.top-page{
 .bread-crumb{
   overflow: hidden;
   padding: 15px 2%;
+  background: #f8f8f8;
 }
 
 .bread-crumb ul li {
