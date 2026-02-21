@@ -99,19 +99,24 @@
                     </div>
 
                     <div class="tag-term-wrap">
-                        <ul>
-                            <?php
-                            if ( $current_pt === 'voice' ) {
-                                $terms = get_terms(['taxonomy' => 'parts', 'hide_empty' => true]);
-                                foreach ( (array)$terms as $t ) {
-                                    echo '<li><a href="'.get_term_link($t).'">'.esc_html($t->name).'</a> ('.$t->count.')</li>';
-                                }
-                            } else {
-                                wp_list_categories(['title_li' => '', 'show_count' => true]);
-                            }
-                            ?>
-                        </ul>
-                    </div>
+    <ul>
+        <?php
+        if ( $current_pt === 'voice' ) {
+            $terms = get_terms(['taxonomy' => 'parts', 'hide_empty' => true]);
+            foreach ( (array)$terms as $t ) {
+                echo '<li><a href="'.get_term_link($t).'">'.esc_html($t->name).'</a> ('.$t->count.')</li>';
+            }
+        } else {
+            // exclude パラメータを追加して指定のIDを除外します
+            wp_list_categories([
+                'title_li'   => '',
+                'show_count' => true,
+                'exclude'    => '11,73,46,10' // ここに除外したいIDを記述
+            ]);
+        }
+        ?>
+    </ul>
+</div>
 
                     <div class="btn-box">
                         <div class="btn btn-readmore">
