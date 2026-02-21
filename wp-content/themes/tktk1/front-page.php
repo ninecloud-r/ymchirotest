@@ -149,7 +149,7 @@ Template Name: front-page
                 LINEからのご予約も承ります。
             </div>
             <div class="btn-box">
-                <a href="https://line.me/your-id" target="_blank" rel="noopener">友達登録する</a>
+                <a href="https://line.me/R/ti/p/%40dam1533q" target="_blank" rel="noopener">友達登録する</a>
             </div>
         </div>
     </div>
