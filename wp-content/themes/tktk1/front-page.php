@@ -61,21 +61,6 @@ Template Name: front-page
     </div>
 </div>
 
-<div class="section top-lp-section">
-    <div class="container mid">
-        <div class="fixed-page-content">
-            <?php
-            $page_id = 7023; // 固定ページのIDを指定
-            $page_data = get_post($page_id);
-            if ($page_data) {
-                // コンテンツを表示（フィルターを通すことで整形を維持）
-                echo apply_filters('the_content', $page_data->post_content);
-            }
-            ?>
-        </div>
-        </div>
-</div>
-
 <div class="section concept-section">
     <div class="container mid">
         <div class="section-img">
@@ -89,6 +74,21 @@ Template Name: front-page
             <img src="<?php echo $url; ?>/view/images/top_img05.webp" alt="">
         </div>
     </div>
+</div>
+
+<div class="section top-lp-section">
+    <div class="container mid">
+        <div class="fixed-page-content">
+            <?php
+            $page_id = 7023; // 固定ページのIDを指定
+            $page_data = get_post($page_id);
+            if ($page_data) {
+                // コンテンツを表示（フィルターを通すことで整形を維持）
+                echo apply_filters('the_content', $page_data->post_content);
+            }
+            ?>
+        </div>
+        </div>
 </div>
 
 <div class="section top-col-section col01">
